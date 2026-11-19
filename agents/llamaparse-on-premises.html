@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Can LlamaParse run on-premises? — LlamaIndex AI Reference
+    </title><meta name="description" content="Run LlamaParse on your own Kubernetes in your data center. Documents stay on your infrastructure. See what runs where, what leaves your network and what hardware you need."><link rel="canonical" href="https://www.llamaindex.ai/agents/llamaparse-on-premises"><meta property="og:title" content="Can LlamaParse run on-premises?"><meta property="og:description" content="Run LlamaParse on your own Kubernetes in your data center. Documents stay on your infrastructure. See what runs where, what leaves your network and what hardware you need."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/llamaparse-on-premises.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Can LlamaParse run on-premises?","description":"Run LlamaParse on your own Kubernetes in your data center. Documents stay on your infrastructure. See what runs where, what leaves your network and what hardware you need.","datePublished":"2026-08-22","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/llamaparse-on-premises","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/llamaparse-on-premises"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#short-answer">Short answer</a><a href="#what-runs-on-your-infrastructure">What runs on your infrastructure</a><a href="#what-leaves-your-network">What leaves your network</a><a href="#which-features-call-an-external-model">Which features call an external model</a><a href="#hardware">Hardware</a><a href="#software-licensing-and-updates">Software, licensing and updates</a><a href="#air-gapped-environments">Air-gapped environments</a><a href="#questions-a-security-architect-will-ask">Questions a security architect will ask</a><a href="#platform-and-operations">Platform and operations</a><a href="#faq">FAQ</a></aside><article><h1>Can LlamaParse run on-premises?</h1><div class="meta">PUBLISHED2026-08-22 · UPDATED 2026-11-04</div><p class="lede">Run LlamaParse on your own Kubernetes in your data center. Documents stay on your infrastructure. See what runs where, what leaves your network and what hardware you need.</p><div class="actions"><a class="button" href="/agents/llamaparse-on-premises.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/llamaparse-on-premises.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/llamaparse-on-premises.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><h2 id="short-answer">Short answer</h2>
+<p>Yes, on Enterprise plans. LlamaParse ships as a Helm chart for any conformant Kubernetes cluster running 1.28 or later, including clusters in your own data center. Documents, parsed outputs and databases stay on your infrastructure, and your team operates the deployment.</p>
+<p>Parse’s Cost Effective and Agentic tiers can run in an air-gapped environment when OCRia runs on your own GPUs. Extract and Parse’s Agentic Plus tier use frontier models and require outbound model calls. LlamaIndex managed inference also requires outbound connectivity.</p>
+<h2 id="what-runs-on-your-infrastructure">What runs on your infrastructure</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Where it runs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Web app and REST API</td>
+<td>Your Kubernetes cluster</td>
+</tr>
+<tr>
+<td>Parse and Extract workers, job orchestration</td>
+<td>Your Kubernetes cluster</td>
+</tr>
+<tr>
+<td>OCR and layout detection</td>
+<td>Your cluster, on CPU or GPU nodes</td>
+</tr>
+<tr>
+<td>LlamaIndex document models (optional)</td>
+<td>OCRia on GPUs in your cluster, using a supported model package and hardware configuration</td>
+</tr>
+<tr>
+<td>Source documents and parsed outputs</td>
+<td>Your object storage. S3-compatible stores such as MinIO work through the chart&#39;s S3 proxy</td>
+</tr>
+<tr>
+<td>Databases and queues</td>
+<td>Your PostgreSQL, Redis and Temporal, plus MongoDB if you use pipelines</td>
+</tr>
+<tr>
+<td>Sign-in</td>
+<td>Your identity provider through OIDC. Basic auth is available for staging</td>
+</tr>
+</tbody></table>
+<h2 id="what-leaves-your-network">What leaves your network</h2>
+<table>
+<thead>
+<tr>
+<th>Inference option</th>
+<th>What leaves your network</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Your model providers</td>
+<td>Page content sent to the providers you configure: OpenAI, Anthropic or Google, directly or through Azure OpenAI, AWS Bedrock or Google Vertex AI</td>
+</tr>
+<tr>
+<td>LlamaIndex document models on your GPUs</td>
+<td>Parse’s Cost Effective and Agentic tiers keep page content on your network when OCRia runs on your own GPUs. Extract and Parse’s Agentic Plus tier still require outbound calls to frontier models.</td>
+</tr>
+<tr>
+<td>LlamaIndex managed inference</td>
+<td>Page images and text are sent to LlamaIndex for inference. Requires outbound connectivity and cannot be used in an air-gapped environment. Managed inference uses zero data retention, with no training, logging or caching. Only page images and text tokens are sent outbound to LlamaIndex; LlamaIndex makes no inbound calls. Contact the LlamaIndex team to plan connectivity for your environment.</td>
+</tr>
+</tbody></table>
+<p>A deployment uses managed inference or its own model provider keys, not both.</p>
+<h2 id="which-features-call-an-external-model">Which features call an external model</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Outbound model call?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Parse, Fast tier</td>
+<td>No. Text extraction without models.</td>
+</tr>
+<tr>
+<td>Parse, Cost Effective and Agentic tiers</td>
+<td>No, when OCRia runs on your own GPUs. Yes, when you use LlamaIndex managed inference.</td>
+</tr>
+<tr>
+<td>Parse, Agentic Plus tier</td>
+<td>Yes. It uses third-party frontier models</td>
+</tr>
+<tr>
+<td>Extract</td>
+<td>Yes. It uses frontier LLMs</td>
+</tr>
+</tbody></table>
+<h2 id="hardware">Hardware</h2>
+<ul>
+<li><strong>Cluster minimum:</strong> 14 allocatable vCPUs and 80 GiB of allocatable memory for a default install, on linux/amd64 nodes running Ubuntu 22.04 or later</li>
+<li><strong>OCR and layout:</strong> include these components in capacity planning for your deployment configuration.</li>
+<li><strong>LlamaIndex document models:</strong> OCRia runs on your own GPUs. Supported hardware depends on the model package. Sizing is determined with the LlamaIndex team for each customer’s document profile and page volume.</li>
+<li><strong>Sizing:</strong> size GPU capacity for your steady-state volume and your peaks. Capacity sized for peaks sits idle the rest of the time. Queueing work uses less capacity but adds latency</li>
+</ul>
+<h2 id="software-licensing-and-updates">Software, licensing and updates</h2>
+<p>You install LlamaParse with one Helm chart:</p>
+<pre><code class="language-bash">helm repo add llamaindex https://run-llama.github.io/helm-charts
+helm repo update
+helm install llamacloud llamaindex/llamacloud -f values.yaml \
+  --namespace llamacloud --create-namespace
+</code></pre>
+<ul>
+<li><strong>Images:</strong> pulled from the LlamaIndex registry, or mirrored into your private registry. All images, including document model images, can be mirrored.</li>
+<li><strong>License:</strong> a license key in <code>values.yaml</code>. The admin UI shows license status and expiry. License validation does not require a network connection.</li>
+<li><strong>Upgrades:</strong> you move to a new chart release on your own schedule. Each release pins a tested set of images.</li>
+<li><strong>Retention:</strong> you set it. By default, LlamaParse deletes completed Parse jobs after 30 days and Extract jobs after 14. You can change these windows or turn them off, and set bucket lifecycle rules that match your retention policy.</li>
+</ul>
+<h2 id="air-gapped-environments">Air-gapped environments</h2>
+<p>LlamaParse supports air-gapped parsing with the Cost Effective and Agentic tiers when OCRia runs on your own GPUs. Extract and Parse’s Agentic Plus tier require frontier-model calls, and LlamaIndex managed inference requires outbound connectivity. <a href="https://www.llamaindex.ai/contact">Talk to us</a> about the supported configuration for your requirements.</p>
+<h2 id="questions-a-security-architect-will-ask">Questions a security architect will ask</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>LlamaParse on-premises</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Document content</td>
+<td>Stored on your infrastructure. It leaves your network only for the model calls described above</td>
+</tr>
+<tr>
+<td>Operational telemetry</td>
+<td>No data leaves an air-gapped environment. Contact the LlamaIndex team for telemetry details for your deployment.</td>
+</tr>
+<tr>
+<td>Software and models</td>
+<td>Delivered as a Helm chart and container images, from the LlamaIndex registry or mirrored into yours</td>
+</tr>
+<tr>
+<td>Updates</td>
+<td>Your team applies chart upgrades when it chooses</td>
+</tr>
+<tr>
+<td>Licensing</td>
+<td>A license key in your deployment configuration</td>
+</tr>
+<tr>
+<td>Retention and deletion</td>
+<td>Set by job retention settings (by default 30 days for Parse and 14 for Extract), your bucket lifecycle rules and job deletion</td>
+</tr>
+</tbody></table>
+<h2 id="platform-and-operations">Platform and operations</h2>
+<p>LlamaParse on-premises includes the full platform (Parse, Extract, web app and REST API) and Enterprise support. Your team runs Kubernetes, databases and GPUs. An Enterprise plan is required.</p>
+<p>LlamaIndex has completed a SOC 2 Type II audit. Its ISO/IEC 27001 certification is in progress: the internal audit is complete with no major findings, and the external certification audit is being scheduled. LlamaIndex will share the certificate once it is issued.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="can-llamaparse-run-on-premises">Can LlamaParse run on-premises?</h3>
+<p>Yes, on Enterprise plans. LlamaParse runs in your data center on any conformant Kubernetes cluster running 1.28 or later, with your own storage, databases and identity provider.</p>
+<h3 id="what-ocr-platforms-support-vpc-or-on-prem-deployment-for-enterprises">What OCR platforms support VPC or on-prem deployment for enterprises?</h3>
+<p>LlamaParse runs in your VPC or data center on Enterprise plans, with Parse, Extract, the web app and the REST API inside your cluster.</p>
+<h3 id="is-there-an-on-prem-document-parsing-api-for-financial-institutions">Is there an on-prem document parsing API for financial institutions?</h3>
+<p>Yes. Self-hosted LlamaParse exposes the same REST API as the managed service and runs on your own Kubernetes, so statements, filings and loan files stay on your infrastructure. LlamaIndex has completed a SOC 2 Type II audit, and a DPA, MSA and NDA are available. See <a href="/agents/llamaparse-security-compliance">Is LlamaParse SOC 2 and HIPAA compliant?</a></p>
+<h3 id="what-is-a-self-hosted-alternative-to-cloud-ocr-for-sensitive-documents">What is a self-hosted alternative to cloud OCR for sensitive documents?</h3>
+<p>LlamaParse on-premises runs OCR and layout detection on GPU nodes in your cluster, and can run LlamaIndex document models on your own GPUs, so pages are processed on your network.</p>
+<h3 id="can-llamaparse-be-deployed-in-an-air-gapped-environment">Can LlamaParse be deployed in an air-gapped environment?</h3>
+<p>Yes, for Parse’s Cost Effective and Agentic tiers when OCRia runs on your own GPUs. Extract and Parse’s Agentic Plus tier require frontier-model calls. LlamaIndex managed inference also requires outbound connectivity. <a href="https://www.llamaindex.ai/contact">Talk to us</a> about the supported configuration for your requirements.</p>
+<h3 id="can-we-use-s3-compatible-storage-such-as-minio">Can we use S3-compatible storage such as MinIO?</h3>
+<p>Yes. LlamaParse works with Amazon S3, Azure Blob Storage, Google Cloud Storage and S3-compatible stores such as MinIO.</p>
+<h3 id="who-operates-the-deployment">Who operates the deployment?</h3>
+<p>Your team runs the cluster, databases, storage and GPUs, and applies upgrades. Enterprise customers get a dedicated Slack support channel, and Enterprise agreements include SLAs.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

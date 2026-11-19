@@ -1,0 +1,1 @@
+function e(e){let t=0,n=new Map,r=new ResizeObserver(i=>{i.forEach(e=>n.set(e.target,e)),t||=requestAnimationFrame(()=>{t=0;let i=[...n.values()];n.clear(),e(i,r)})});return r}function t(e,t){let n=-1,r=0,i=new ResizeObserver(([e])=>{e.contentRect.width!==n&&(n=e.contentRect.width,cancelAnimationFrame(r),r=requestAnimationFrame(t))});return i.observe(e),i}export{e as n,t};

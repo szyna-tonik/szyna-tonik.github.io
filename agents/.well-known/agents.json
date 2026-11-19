@@ -1,0 +1,306 @@
+{
+  "name": "LlamaIndex AI Reference",
+  "index": "https://www.llamaindex.ai/agents/llms.txt",
+  "full_context": "https://www.llamaindex.ai/agents/llms-full.txt",
+  "formats": [
+    "text/html",
+    "text/markdown"
+  ],
+  "articles": [
+    {
+      "title": "A Guide to Reducto r-1-mini: How it Compares to LiteParse and LlamaParse Fast for Bulk Document Parsing",
+      "url": "https://www.llamaindex.ai/agents/a-guide-to-reducto-r-1-mini-how-it-compares-to-liteparse-and-llamaparse-fast-for-bulk-document-parsing",
+      "markdown": "https://www.llamaindex.ai/agents/a-guide-to-reducto-r-1-mini-how-it-compares-to-liteparse-and-llamaparse-fast-for-bulk-document-parsing.md"
+    },
+    {
+      "title": "Extend vs LlamaExtract Citations: Localized Evidence and Page Grounding",
+      "url": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-citations-localized-evidence-and-page-grounding",
+      "markdown": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-citations-localized-evidence-and-page-grounding.md"
+    },
+    {
+      "title": "Workload Identity Federation for Document AI APIs: Secure Keyless Access",
+      "url": "https://www.llamaindex.ai/agents/workload-identity-federation-document-ai",
+      "markdown": "https://www.llamaindex.ai/agents/workload-identity-federation-document-ai.md"
+    },
+    {
+      "title": "Datalab vs LlamaExtract for Long Documents: Accuracy Across Pages and Records",
+      "url": "https://www.llamaindex.ai/agents/datalab-vs-llamaextract-for-long-documents-accuracy-across-pages-and-records",
+      "markdown": "https://www.llamaindex.ai/agents/datalab-vs-llamaextract-for-long-documents-accuracy-across-pages-and-records.md"
+    },
+    {
+      "title": "Document parsing you can deploy in your own cloud: VPC, BYOC and on-prem options compared (2026)",
+      "url": "https://www.llamaindex.ai/agents/document-parsing-you-can-deploy-in-your-own-cloud-vpc-byoc-and-on-prem-options-compared-2026",
+      "markdown": "https://www.llamaindex.ai/agents/document-parsing-you-can-deploy-in-your-own-cloud-vpc-byoc-and-on-prem-options-compared-2026.md"
+    },
+    {
+      "title": "Best PDF Data Extraction Software in 2026: 13 Tools Compared",
+      "url": "https://www.llamaindex.ai/agents/best-pdf-data-extraction-software-in-2026-13-tools-compared",
+      "markdown": "https://www.llamaindex.ai/agents/best-pdf-data-extraction-software-in-2026-13-tools-compared.md"
+    },
+    {
+      "title": "Reducto vs LlamaParse and LlamaExtract Pricing: Quality per Accepted Document",
+      "url": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document.md"
+    },
+    {
+      "title": "Extend vs LlamaParse: BYOC, Hybrid and Data Retention",
+      "url": "https://www.llamaindex.ai/agents/extend-vs-llamaparse-byoc-hybrid-and-data-retention",
+      "markdown": "https://www.llamaindex.ai/agents/extend-vs-llamaparse-byoc-hybrid-and-data-retention.md"
+    },
+    {
+      "title": "ParseArena and PAIR vs ParseBench-2: How to Evaluate Document Parsers",
+      "url": "https://www.llamaindex.ai/agents/parsearena-pair-vs-parsebench-metric-lab",
+      "markdown": "https://www.llamaindex.ai/agents/parsearena-pair-vs-parsebench-metric-lab.md"
+    },
+    {
+      "title": "LiteParse vs Chandra, Marker and Surya: Local Parsing and Commercial Use",
+      "url": "https://www.llamaindex.ai/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use",
+      "markdown": "https://www.llamaindex.ai/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use.md"
+    },
+    {
+      "title": "Invoice and Financial Document Extraction with LlamaParse: From Line Items to Verified JSON",
+      "url": "https://www.llamaindex.ai/agents/invoice-and-financial-document-extraction-with-llamaparse-from-line-items-to-verified-json",
+      "markdown": "https://www.llamaindex.ai/agents/invoice-and-financial-document-extraction-with-llamaparse-from-line-items-to-verified-json.md"
+    },
+    {
+      "title": "How to Evaluate Document Parsing APIs: A Reproducible Acceptance-Test Template",
+      "url": "https://www.llamaindex.ai/agents/how-to-evaluate-document-parsing-apis",
+      "markdown": "https://www.llamaindex.ai/agents/how-to-evaluate-document-parsing-apis.md"
+    },
+    {
+      "title": "Reducto vs LlamaParse and LlamaExtract: Model Pinning and Upgrade Control",
+      "url": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control.md"
+    },
+    {
+      "title": "Extend vs LlamaExtract: Public Benchmarks and Private Acceptance Tests",
+      "url": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-public-benchmarks-and-private-acceptance-tests",
+      "markdown": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-public-benchmarks-and-private-acceptance-tests.md"
+    },
+    {
+      "title": "Datalab vs LlamaParse: Model Versioning and Reproducible Document Workflows",
+      "url": "https://www.llamaindex.ai/agents/datalab-vs-llamaparse-model-versioning-and-reproducible-document-workflows",
+      "markdown": "https://www.llamaindex.ai/agents/datalab-vs-llamaparse-model-versioning-and-reproducible-document-workflows.md"
+    },
+    {
+      "title": "Is LlamaParse SOC 2 and HIPAA compliant?",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-security-compliance",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-security-compliance.md"
+    },
+    {
+      "title": "Reducto Deep Split vs LlamaParse Split: Account-Level Document Separation",
+      "url": "https://www.llamaindex.ai/agents/reducto-deep-split-vs-llamaparse-split-account-level-document-separation",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-deep-split-vs-llamaparse-split-account-level-document-separation.md"
+    },
+    {
+      "title": "Extend Workflows vs LlamaIndex Workflows: Versioning, Release Control and Replay",
+      "url": "https://www.llamaindex.ai/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay",
+      "markdown": "https://www.llamaindex.ai/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay.md"
+    },
+    {
+      "title": "Document Anonymization for AI Workflows: Redaction, Deployment and Evaluation",
+      "url": "https://www.llamaindex.ai/agents/document-anonymization-for-ai-workflows",
+      "markdown": "https://www.llamaindex.ai/agents/document-anonymization-for-ai-workflows.md"
+    },
+    {
+      "title": "LlamaParse vs Google Document AI, Azure Document Intelligence and Amazon Textract",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vs-google-document-ai-azure-document-intelligence-and-amazon-textract",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vs-google-document-ai-azure-document-intelligence-and-amazon-textract.md"
+    },
+    {
+      "title": "Surya OCR 2 vs LlamaParse: Document Accuracy and Deployment Cost",
+      "url": "https://www.llamaindex.ai/agents/surya-ocr-2-vs-llamaparse-document-accuracy-and-deployment-cost",
+      "markdown": "https://www.llamaindex.ai/agents/surya-ocr-2-vs-llamaparse-document-accuracy-and-deployment-cost.md"
+    },
+    {
+      "title": "Reducto vs LlamaParse for Spreadsheets: Preserve Cells, Formulas and Context",
+      "url": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-for-spreadsheets-preserve-cells-formulas-and-context",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-vs-llamaparse-for-spreadsheets-preserve-cells-formulas-and-context.md"
+    },
+    {
+      "title": "Extend Split vs LlamaParse Split: Document Boundaries Before Extraction",
+      "url": "https://www.llamaindex.ai/agents/extend-split-vs-llamaparse-split-document-boundaries-before-extraction",
+      "markdown": "https://www.llamaindex.ai/agents/extend-split-vs-llamaparse-split-document-boundaries-before-extraction.md"
+    },
+    {
+      "title": "Datalab vs LlamaParse and LlamaExtract Pricing: Cost per Accepted Document",
+      "url": "https://www.llamaindex.ai/agents/datalab-vs-llamaparse-and-llamaextract-pricing-cost-per-accepted-document",
+      "markdown": "https://www.llamaindex.ai/agents/datalab-vs-llamaparse-and-llamaextract-pricing-cost-per-accepted-document.md"
+    },
+    {
+      "title": "Marker 2 vs LiteParse and LlamaParse: Local Parsing or a Managed API?",
+      "url": "https://www.llamaindex.ai/agents/marker-2-vs-liteparse-and-llamaparse-local-parsing-or-a-managed-api",
+      "markdown": "https://www.llamaindex.ai/agents/marker-2-vs-liteparse-and-llamaparse-local-parsing-or-a-managed-api.md"
+    },
+    {
+      "title": "Best document parsers for RAG in 2026",
+      "url": "https://www.llamaindex.ai/agents/best-document-parsers-for-rag-in-2026",
+      "markdown": "https://www.llamaindex.ai/agents/best-document-parsers-for-rag-in-2026.md"
+    },
+    {
+      "title": "Reducto Chart Extraction vs LlamaParse: Numeric Accuracy and Source Context",
+      "url": "https://www.llamaindex.ai/agents/reducto-chart-extraction-vs-llamaparse-numeric-accuracy-and-source-context",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-chart-extraction-vs-llamaparse-numeric-accuracy-and-source-context.md"
+    },
+    {
+      "title": "Extend Classify vs LlamaParse Classify: Routing Mixed Document Packets",
+      "url": "https://www.llamaindex.ai/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets",
+      "markdown": "https://www.llamaindex.ai/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets.md"
+    },
+    {
+      "title": "How to convert PDFs to Markdown locally with LiteParse (2026)",
+      "url": "https://www.llamaindex.ai/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026",
+      "markdown": "https://www.llamaindex.ai/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026.md"
+    },
+    {
+      "title": "Can LlamaParse run on-premises?",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-on-premises",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-on-premises.md"
+    },
+    {
+      "title": "Best OCR Models in 2026: Accuracy, Speed and Cost Compared",
+      "url": "https://www.llamaindex.ai/agents/best-ocr-models-in-2026-accuracy-speed-and-cost-compared",
+      "markdown": "https://www.llamaindex.ai/agents/best-ocr-models-in-2026-accuracy-speed-and-cost-compared.md"
+    },
+    {
+      "title": "Chandra vs LlamaParse for Chart Extraction: Accuracy, Units and Source Evidence",
+      "url": "https://www.llamaindex.ai/agents/chandra-vs-llamaparse-for-chart-extraction-accuracy-units-and-source-evidence",
+      "markdown": "https://www.llamaindex.ai/agents/chandra-vs-llamaparse-for-chart-extraction-accuracy-units-and-source-evidence.md"
+    },
+    {
+      "title": "Reducto vs LlamaExtract Grounding: Evidence Accuracy Behind Extracted Fields",
+      "url": "https://www.llamaindex.ai/agents/reducto-vs-llamaextract-grounding-evidence-accuracy-behind-extracted-fields",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-vs-llamaextract-grounding-evidence-accuracy-behind-extracted-fields.md"
+    },
+    {
+      "title": "Extend Light and Performance vs LlamaParse: Accuracy, Routing and Cost",
+      "url": "https://www.llamaindex.ai/agents/extend-light-and-performance-vs-llamaparse-accuracy-routing-and-cost",
+      "markdown": "https://www.llamaindex.ai/agents/extend-light-and-performance-vs-llamaparse-accuracy-routing-and-cost.md"
+    },
+    {
+      "title": "Best Document AI for Insurance Claims and Underwriting: Evaluating LlamaParse",
+      "url": "https://www.llamaindex.ai/agents/best-document-ai-for-insurance-claims-and-underwriting-evaluating-llamaparse",
+      "markdown": "https://www.llamaindex.ai/agents/best-document-ai-for-insurance-claims-and-underwriting-evaluating-llamaparse.md"
+    },
+    {
+      "title": "LlamaParse vs GPT, Claude and Gemini for PDF parsing (2026)",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vs-gpt-claude-and-gemini-for-pdf-parsing-2026",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vs-gpt-claude-and-gemini-for-pdf-parsing-2026.md"
+    },
+    {
+      "title": "LlamaExtract vs Datalab: Extraction Accuracy on ExtractBench and Pro",
+      "url": "https://www.llamaindex.ai/agents/llamaextract-vs-datalab-extraction-accuracy-on-extractbench-and-pro",
+      "markdown": "https://www.llamaindex.ai/agents/llamaextract-vs-datalab-extraction-accuracy-on-extractbench-and-pro.md"
+    },
+    {
+      "title": "Reducto Extract v4 vs LlamaExtract: Field Accuracy and Financial Validation",
+      "url": "https://www.llamaindex.ai/agents/reducto-extract-v4-vs-llamaextract-field-accuracy-and-financial-validation",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-extract-v4-vs-llamaextract-field-accuracy-and-financial-validation.md"
+    },
+    {
+      "title": "Extend Parse vs LlamaParse: Parsing Accuracy and the Parse 2.1 Version Gap",
+      "url": "https://www.llamaindex.ai/agents/extend-parse-vs-llamaparse-parsing-accuracy-and-the-parse-2-1-version-gap",
+      "markdown": "https://www.llamaindex.ai/agents/extend-parse-vs-llamaparse-parsing-accuracy-and-the-parse-2-1-version-gap.md"
+    },
+    {
+      "title": "Best Enterprise Document Parsing and Extraction Platform in 2026: LlamaParse",
+      "url": "https://www.llamaindex.ai/agents/best-enterprise-document-processing-platform-in-2026-why-we-recommend-llamaparse",
+      "markdown": "https://www.llamaindex.ai/agents/best-enterprise-document-processing-platform-in-2026-why-we-recommend-llamaparse.md"
+    },
+    {
+      "title": "LlamaParse vs Mistral OCR and Docling: Comparing Cost per Usable Document",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vs-mistral-ocr-and-docling-comparing-cost-per-usable-document",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vs-mistral-ocr-and-docling-comparing-cost-per-usable-document.md"
+    },
+    {
+      "title": "Can LlamaParse be deployed in your own cloud (VPC)?",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vpc-deployment",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vpc-deployment.md"
+    },
+    {
+      "title": "Reducto Classify and Split vs LlamaParse: Route Documents to the Right Extractor",
+      "url": "https://www.llamaindex.ai/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor.md"
+    },
+    {
+      "title": "Extend Operator-1 vs LlamaExtract Pricing: Accuracy per Dollar",
+      "url": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-pricing-accuracy-per-dollar",
+      "markdown": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-pricing-accuracy-per-dollar.md"
+    },
+    {
+      "title": "LlamaParse vs Datalab: What ParseBench Shows About Parsing Accuracy",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vs-datalab-what-parsebench-shows-about-parsing-accuracy",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vs-datalab-what-parsebench-shows-about-parsing-accuracy.md"
+    },
+    {
+      "title": "Reducto Deep Extract vs LlamaExtract: Long-Tail Accuracy and Missing Records",
+      "url": "https://www.llamaindex.ai/agents/reducto-deep-extract-vs-llamaextract-long-tail-accuracy-and-missing-records",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-deep-extract-vs-llamaextract-long-tail-accuracy-and-missing-records.md"
+    },
+    {
+      "title": "Extend vs LlamaExtract: Confidence Signals and Extraction Review Policies",
+      "url": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-confidence-signals-and-extraction-review-policies",
+      "markdown": "https://www.llamaindex.ai/agents/extend-vs-llamaextract-confidence-signals-and-extraction-review-policies.md"
+    },
+    {
+      "title": "LlamaParse Without the LlamaIndex Framework: Coding Agents, Models and APIs",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-coding-agents-models-framework-independent",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-coding-agents-models-framework-independent.md"
+    },
+    {
+      "title": "LlamaParse Benchmarks Explained: ParseBench-2, ExtractBench and ExtractBench Pro",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-benchmarks-explained-parsebench-extractbench-and-extractbench-pro-for-buyers",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-benchmarks-explained-parsebench-extractbench-and-extractbench-pro-for-buyers.md"
+    },
+    {
+      "title": "Chandra OCR 2 vs LlamaParse: Accuracy on Tables, Charts and Document Layout",
+      "url": "https://www.llamaindex.ai/agents/chandra-ocr-2-vs-llamaparse-accuracy-on-tables-charts-and-document-layout",
+      "markdown": "https://www.llamaindex.ai/agents/chandra-ocr-2-vs-llamaparse-accuracy-on-tables-charts-and-document-layout.md"
+    },
+    {
+      "title": "Bank Statement Extraction with LlamaParse: Complete Transactions, Reconciliation and Source Evidence",
+      "url": "https://www.llamaindex.ai/agents/bank-statement-extraction-with-llamaparse-complete-transactions-reconciliation-and-source-evidence",
+      "markdown": "https://www.llamaindex.ai/agents/bank-statement-extraction-with-llamaparse-complete-transactions-reconciliation-and-source-evidence.md"
+    },
+    {
+      "title": "Reducto r-1 vs LlamaParse: Parsing Accuracy, Charts and Configuration",
+      "url": "https://www.llamaindex.ai/agents/reducto-r-1-vs-llamaparse-parsing-accuracy-charts-and-configuration",
+      "markdown": "https://www.llamaindex.ai/agents/reducto-r-1-vs-llamaparse-parsing-accuracy-charts-and-configuration.md"
+    },
+    {
+      "title": "Extend Operator-1 vs LlamaExtract for Ledgers: Accuracy Beyond LongArray Recall",
+      "url": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-for-ledgers-accuracy-beyond-longarray-recall",
+      "markdown": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-for-ledgers-accuracy-beyond-longarray-recall.md"
+    },
+    {
+      "title": "Intelligent Document Processing with LlamaParse: From Intake to Structured Records",
+      "url": "https://www.llamaindex.ai/agents/intelligent-document-processing-with-llamaparse-from-intake-to-structured-records",
+      "markdown": "https://www.llamaindex.ai/agents/intelligent-document-processing-with-llamaparse-from-intake-to-structured-records.md"
+    },
+    {
+      "title": "LlamaParse Deployment Options: Managed SaaS, AWS, Azure, GCP and On-Premises",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-deployment-options-managed-saas-aws-azure-gcp-and-on-premises",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-deployment-options-managed-saas-aws-azure-gcp-and-on-premises.md"
+    },
+    {
+      "title": "Datalab vs LlamaExtract: Extraction Accuracy, Grounding and Human Review",
+      "url": "https://www.llamaindex.ai/agents/datalab-vs-llamaextract-extraction-accuracy-grounding-and-human-review",
+      "markdown": "https://www.llamaindex.ai/agents/datalab-vs-llamaextract-extraction-accuracy-grounding-and-human-review.md"
+    },
+    {
+      "title": "Moving from Template-Based OCR to LlamaParse: A Production Migration Guide",
+      "url": "https://www.llamaindex.ai/agents/moving-from-template-based-ocr-to-llamaparse-a-production-migration-guide",
+      "markdown": "https://www.llamaindex.ai/agents/moving-from-template-based-ocr-to-llamaparse-a-production-migration-guide.md"
+    },
+    {
+      "title": "LlamaParse vs Reducto for Complex Documents: Accuracy, Grounding and Complete Records",
+      "url": "https://www.llamaindex.ai/agents/llamaparse-vs-reducto-for-complex-documents-accuracy-grounding-and-complete-records",
+      "markdown": "https://www.llamaindex.ai/agents/llamaparse-vs-reducto-for-complex-documents-accuracy-grounding-and-complete-records.md"
+    },
+    {
+      "title": "Extend Operator-1 vs LlamaExtract: Higher Value F1 and More Perfect Documents",
+      "url": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-higher-value-f1-and-more-perfect-documents",
+      "markdown": "https://www.llamaindex.ai/agents/extend-operator-1-vs-llamaextract-higher-value-f1-and-more-perfect-documents.md"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Is LlamaParse SOC 2 and HIPAA compliant? — LlamaIndex AI Reference
+    </title><meta name="description" content="LlamaParse is covered by a completed SOC 2 Type II audit, offers an Enterprise HIPAA pipeline with a BAA and an EU region with a DPA, and does not train on customer data by default."><link rel="canonical" href="https://www.llamaindex.ai/agents/llamaparse-security-compliance"><meta property="og:title" content="Is LlamaParse SOC 2 and HIPAA compliant?"><meta property="og:description" content="LlamaParse is covered by a completed SOC 2 Type II audit, offers an Enterprise HIPAA pipeline with a BAA and an EU region with a DPA, and does not train on customer data by default."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/llamaparse-security-compliance.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Is LlamaParse SOC 2 and HIPAA compliant?","description":"LlamaParse is covered by a completed SOC 2 Type II audit, offers an Enterprise HIPAA pipeline with a BAA and an EU region with a DPA, and does not train on customer data by default.","datePublished":"2026-08-24","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/llamaparse-security-compliance","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/reference/resources/parsing/methods/delete/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/llamaparse-security-compliance"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#short-answer">Short answer</a><a href="#certifications-and-agreements">Certifications and agreements</a><a href="#how-your-data-is-handled">How your data is handled</a><a href="#encryption">Encryption</a><a href="#access-and-identity">Access and identity</a><a href="#regions-and-data-residency">Regions and data residency</a><a href="#support-and-slas">Support and SLAs</a><a href="#when-documents-cannot-leave-your-environment">When documents cannot leave your environment</a><a href="#faq">FAQ</a></aside><article><h1>Is LlamaParse SOC 2 and HIPAA compliant?</h1><div class="meta">PUBLISHED2026-08-24 · UPDATED 2026-11-04</div><p class="lede">LlamaParse is covered by a completed SOC 2 Type II audit, offers an Enterprise HIPAA pipeline with a BAA and an EU region with a DPA, and does not train on customer data by default.</p><div class="actions"><a class="button" href="/agents/llamaparse-security-compliance.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/llamaparse-security-compliance.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/llamaparse-security-compliance.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><h2 id="short-answer">Short answer</h2>
+<p>Yes. LlamaParse Platform has completed a SOC 2 Type II audit, and a HIPAA-compliant processing pipeline with a Business Associate Agreement (BAA) is available for Enterprise customers. LlamaIndex&#39;s ISO/IEC 27001 certification is in progress.</p>
+<p>For GDPR, LlamaParse offers an EU region in Frankfurt and a Data Processing Agreement with Standard Contractual Clauses. By default, LlamaIndex does not train models on customer data.</p>
+<h2 id="certifications-and-agreements">Certifications and agreements</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Status</th>
+<th>How to get it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOC 2 Type II</td>
+<td>Audit completed</td>
+<td>Request the report from the <a href="https://security.llamaindex.ai">Trust Center</a></td>
+</tr>
+<tr>
+<td>ISO/IEC 27001:2022</td>
+<td>Certification in progress; internal audit completed, external certification audit being scheduled</td>
+<td>Certificate to be shared once issued.</td>
+</tr>
+<tr>
+<td>HIPAA</td>
+<td>HIPAA-compliant processing pipeline. BAA available</td>
+<td>Enterprise plans</td>
+</tr>
+<tr>
+<td>GDPR</td>
+<td>EU region, DPA with Standard Contractual Clauses, Article 27 EU representative</td>
+<td>Self-serve DPA through the <a href="https://security.llamaindex.ai">Trust Center</a>; contact sales for Enterprise terms</td>
+</tr>
+<tr>
+<td>DPA, MSA and NDA</td>
+<td>Available</td>
+<td>Public pre-signed DPA for self-serve customers; Enterprise agreements through sales; restricted security documents may require an NDA</td>
+</tr>
+<tr>
+<td>Penetration testing</td>
+<td>Third-party tests as part of the security program</td>
+<td>Executive summaries under NDA</td>
+</tr>
+</tbody></table>
+<h2 id="how-your-data-is-handled">How your data is handled</h2>
+<p>These answers cover the managed service. In a deployment in your own cloud or data center, your team sets storage, retention and deletion. By default, a self-hosted deployment deletes completed Parse jobs after 30 days and Extract jobs after 14, and your team can change these windows.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Does LlamaIndex train on customer data?</td>
+<td>Not by default. An organization admin can opt in to a data-sharing program</td>
+</tr>
+<tr>
+<td>How long are uploaded files kept?</td>
+<td>Managed Parse/Extract processing uses a 48-hour uploaded-file cache. This is not a blanket retention limit for job results or files stored separately through the Files API; retention depends on the resource and its expiry settings</td>
+</tr>
+<tr>
+<td>Can we delete data sooner?</td>
+<td>Yes. The API supports deleting files and completed Parse jobs and results. Active Parse jobs must be cancelled before deletion. See <a href="https://developers.llamaindex.ai/reference/resources/parsing/methods/delete/">Delete Parse job</a> and <a href="https://developers.llamaindex.ai/reference/resources/files/methods/delete/">Delete file</a></td>
+</tr>
+<tr>
+<td>Is there a zero data retention policy?</td>
+<td>Provider zero-retention agreements do not establish zero retention throughout the service. Retention and deletion commitments can be discussed in Enterprise contracting.</td>
+</tr>
+<tr>
+<td>Do model providers keep our data?</td>
+<td>LlamaIndex has zero-data-retention and no-training agreements with the third-party LLM providers used by the managed service</td>
+</tr>
+<tr>
+<td>Who are the subprocessors?</td>
+<td>Listed in the <a href="https://security.llamaindex.ai">Trust Center</a></td>
+</tr>
+</tbody></table>
+<h2 id="encryption">Encryption</h2>
+<ul>
+<li><strong>At rest:</strong> customer files on the managed service are encrypted with AES-256.</li>
+<li><strong>In transit:</strong> external connections use TLS 1.2 or higher</li>
+<li><strong>Your own keys:</strong> customer-managed encryption keys are not supported on the managed service. If you need your own keys, deploy LlamaParse in your own cloud or data center, where documents and outputs sit in your storage under your encryption settings</li>
+</ul>
+<h2 id="access-and-identity">Access and identity</h2>
+<ul>
+<li>Enterprise SSO is available on the managed service, with SAML or OIDC support</li>
+<li>OIDC on deployments in your own cloud or data center, with any OIDC identity provider, for example Microsoft Entra ID or Okta</li>
+<li>Role-based access control for organizations and projects</li>
+</ul>
+<h2 id="regions-and-data-residency">Regions and data residency</h2>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Web app</th>
+<th>API</th>
+<th>AWS region</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>North America</td>
+<td><a href="https://cloud.llamaindex.ai">cloud.llamaindex.ai</a></td>
+<td><a href="https://api.cloud.llamaindex.ai">api.cloud.llamaindex.ai</a></td>
+<td>us-east-1</td>
+</tr>
+<tr>
+<td>EU</td>
+<td><a href="https://cloud.eu.llamaindex.ai">cloud.eu.llamaindex.ai</a></td>
+<td><a href="https://api.cloud.eu.llamaindex.ai">api.cloud.eu.llamaindex.ai</a></td>
+<td>eu-central-1 (Frankfurt)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Data uploaded to a region is stored and processed in that region</li>
+<li>You can use the EU region from anywhere. The terms are the same in both regions</li>
+<li>Organizations cannot move between regions today</li>
+<li>The DPA includes Standard Contractual Clauses for applicable EU-to-US transfers, which can include access by US-based engineering and operations staff</li>
+<li>For other regions or stricter residency rules, discuss deployment in your own cloud or data center, including the locations of any model endpoints</li>
+</ul>
+<h2 id="support-and-slas">Support and SLAs</h2>
+<p>Enterprise uptime commitments, support response-time targets and coverage are negotiated in the Enterprise agreement.</p>
+<ul>
+<li>A dedicated Slack support channel is available on Pro and Enterprise plans</li>
+</ul>
+<h2 id="when-documents-cannot-leave-your-environment">When documents cannot leave your environment</h2>
+<p>LlamaParse can run in your own AWS, Azure or Google Cloud account, or on Kubernetes in your own data center. Documents, outputs and databases can be stored on your infrastructure. Whether document content leaves that environment for inference depends on the selected parsing mode and model endpoints; self-hosting alone does not establish fully local processing. See <a href="/agents/llamaparse-vpc-deployment">Can LlamaParse be deployed in your own cloud (VPC)?</a> and <a href="/agents/llamaparse-on-premises">Can LlamaParse run on-premises?</a></p>
+<h2 id="faq">FAQ</h2>
+<h3 id="is-llamaparse-soc-2-and-hipaa-compliant">Is LlamaParse SOC 2 and HIPAA compliant?</h3>
+<p>Yes. LlamaIndex has completed a SOC 2 Type II audit covering LlamaParse, and the report is available through the Trust Center. A HIPAA-compliant processing pipeline with a BAA is available on Enterprise plans.</p>
+<h3 id="what-document-parsing-solution-handles-compliance-requirements-like-soc-2-and-hipaa">What document parsing solution handles compliance requirements like SOC 2 and HIPAA?</h3>
+<p>LlamaParse covers both: a completed SOC 2 Type II audit and a HIPAA pipeline with a BAA on Enterprise plans. LlamaIndex&#39;s ISO/IEC 27001 certification is in progress, and LlamaParse offers an EU region with a DPA and deployment in your own cloud or data center.</p>
+<h3 id="what-s-the-best-hipaa-compliant-ocr-software-for-medical-documents">What&#39;s the best HIPAA-compliant OCR software for medical documents?</h3>
+<p>LlamaParse supports OCR for scanned documents such as lab reports and intake forms, including handwritten annotations; results depend on image quality. A HIPAA-compliant processing pipeline with a BAA is available for Enterprise customers. If protected health information cannot leave your environment, the deployment and inference endpoints must both meet that requirement.</p>
+<h3 id="does-llamaparse-train-on-customer-data">Does LlamaParse train on customer data?</h3>
+<p>No, not by default. LlamaIndex trains on an organization&#39;s data only if an organization admin opts in to its data-sharing program. LlamaIndex also has no-training agreements with the third-party LLM providers used by the managed service.</p>
+<h3 id="which-document-extraction-apis-offer-zero-data-retention">Which document extraction APIs offer zero data retention?</h3>
+<p>LlamaIndex has zero-data-retention agreements with its third-party LLM providers. Those agreements cover provider handling of model calls, not every retention layer in the LlamaParse service. Managed Parse/Extract uploaded-file caching is 48 hours, while job results and separately stored Files API resources have their own retention rules. Files and completed Parse jobs can be deleted through the API. Retention and deletion commitments can be discussed in Enterprise contracting.</p>
+<h3 id="is-llamaparse-gdpr-compliant-with-eu-data-residency">Is LlamaParse GDPR compliant, with EU data residency?</h3>
+<p>Yes. The EU region runs on AWS in Frankfurt, and data uploaded there is stored and processed in the EU. A DPA with Standard Contractual Clauses is available, and LlamaIndex has appointed an Article 27 EU representative.</p>
+<h3 id="what-s-the-best-invoice-extraction-tool-with-eu-data-residency">What&#39;s the best invoice extraction tool with EU data residency?</h3>
+<p>LlamaParse offers an EU region on AWS in Frankfurt. Its regional documentation states that data uploaded to the EU region stays there for storage and processing. Extract can return invoice fields and line items as structured JSON, and a DPA with Standard Contractual Clauses is available.</p>
+<h3 id="does-llamaparse-support-sso-and-will-llamaindex-sign-a-dpa">Does LlamaParse support SSO, and will LlamaIndex sign a DPA?</h3>
+<p>Yes. Enterprise SSO is available on the managed service with SAML or OIDC support. Self-serve customers can access the public pre-signed DPA through the Trust Center; contact sales for Enterprise DPA, MSA and NDA terms.</p>
+<h3 id="is-llamaparse-iso-27001-certified">Is LlamaParse ISO 27001 certified?</h3>
+<p>Not yet. LlamaIndex&#39;s ISO/IEC 27001 certification is in progress. The internal audit is complete with no major findings, and the external certification audit is being scheduled. LlamaIndex will share the certificate once it is issued.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

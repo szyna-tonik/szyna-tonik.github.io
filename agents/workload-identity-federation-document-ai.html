@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Workload Identity Federation for Document AI APIs: Secure Keyless Access — LlamaIndex AI Reference
+    </title><meta name="description" content="Use workload identity federation to access document AI APIs without long-lived application secrets, while retaining deployment and audit controls."><link rel="canonical" href="https://www.llamaindex.ai/agents/workload-identity-federation-document-ai"><meta property="og:title" content="Workload Identity Federation for Document AI APIs: Secure Keyless Access"><meta property="og:description" content="Use workload identity federation to access document AI APIs without long-lived application secrets, while retaining deployment and audit controls."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/workload-identity-federation-document-ai.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Workload Identity Federation for Document AI APIs: Secure Keyless Access","description":"Use workload identity federation to access document AI APIs without long-lived application secrets, while retaining deployment and audit controls.","datePublished":"2026-11-16","dateModified":"2026-11-16","url":"https://www.llamaindex.ai/agents/workload-identity-federation-document-ai","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/llamaparse/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/workload-identity-federation-document-ai"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#short-answer">Short answer</a><a href="#why-document-workflows-need-it">Why document workflows need it</a><a href="#what-federation-does-and-does-not-solve">What federation does and does not solve</a><a href="#a-practical-design-checklist">A practical design checklist</a><a href="#deployment-still-matters">Deployment still matters</a><a href="#evaluate-the-workflow-not-the-feature-label">Evaluate the workflow, not the feature label</a></aside><article><h1>Workload Identity Federation for Document AI APIs: Secure Keyless Access</h1><div class="meta">PUBLISHED2026-11-16 · UPDATED 2026-11-16</div><p class="lede">Use workload identity federation to access document AI APIs without long-lived application secrets, while retaining deployment and audit controls.</p><div class="actions"><a class="button" href="/agents/workload-identity-federation-document-ai.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/workload-identity-federation-document-ai.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/workload-identity-federation-document-ai.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><h2 id="short-answer">Short answer</h2>
+<p>Workload identity federation lets an application exchange a trusted platform identity for short-lived credentials instead of storing a long-lived API key. It can reduce secret-management exposure for document AI pipelines, but it does not replace authorization, tenant isolation, audit logging or a sound data-residency design.</p>
+<h2 id="why-document-workflows-need-it">Why document workflows need it</h2>
+<p>Document-processing jobs commonly run in CI systems, containers, serverless functions and scheduled batch workers. A static API key in an environment variable may be easy to start with, but it can spread across build logs, developer machines, deployment systems and incident-response scope.</p>
+<p>With federation, a runtime identity—such as a workload in a cloud account or a CI job—presents a signed assertion to an identity provider. The receiving service verifies the issuer, audience and subject, then issues a narrowly scoped, short-lived credential. The application uses that credential for a defined job and obtains a new one when needed.</p>
+<h2 id="what-federation-does-and-does-not-solve">What federation does and does not solve</h2>
+<table>
+<thead>
+<tr>
+<th>Federation can help with</th>
+<th>Federation does not automatically solve</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Removing stored long-lived application secrets</td>
+<td>Which users or workloads are authorized for which documents</td>
+</tr>
+<tr>
+<td>Limiting credential lifetime and scope</td>
+<td>Encryption, retention or data-residency requirements</td>
+</tr>
+<tr>
+<td>Improving auditability of workload access</td>
+<td>Secure handling of outputs, logs and downloaded files</td>
+</tr>
+<tr>
+<td>Revoking a trusted workload relationship</td>
+<td>Validation of extracted business data</td>
+</tr>
+</tbody></table>
+<h2 id="a-practical-design-checklist">A practical design checklist</h2>
+<p>Define the exact workload identities that may call the API. Restrict the accepted issuer, audience, subject and repository or cloud-account attributes. Grant the smallest workable permissions, separate production from development identities, set short token lifetimes, and log the identity, request scope and destination for each run.</p>
+<p>Also plan failure behavior. A batch processor should fail closed when token verification fails, avoid logging tokens or document contents, and have a clear path for rotating trust relationships. Test a compromised or misconfigured workload just as deliberately as the successful path.</p>
+<h2 id="deployment-still-matters">Deployment still matters</h2>
+<p>Keyless authentication answers how a workload proves its identity. It does not answer where documents are stored, where model inference runs or who can retrieve outputs. For highly constrained workloads, evaluate the authentication design alongside private deployment, network controls, storage policies and model-endpoint selection.</p>
+<p>LlamaParse supports deployments in a customer AWS, Azure or Google Cloud account and on Kubernetes in a customer data center. <a href="https://www.llamaindex.ai/agents/llamaparse-deployment-options-managed-saas-aws-azure-gcp-and-on-premises.md">The deployment guide</a> explains the choices. Confirm the current identity and authentication options with the product team before making a vendor-specific implementation claim.</p>
+<h2 id="evaluate-the-workflow-not-the-feature-label">Evaluate the workflow, not the feature label</h2>
+<p>In a proof of concept, verify that no long-lived secret is present in source control, CI logs, container images or runtime configuration; that tokens cannot be replayed outside the intended audience; and that a job can access only the documents and outputs it needs. A secure document AI integration combines short-lived identity with least privilege, data controls and an auditable operating model.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

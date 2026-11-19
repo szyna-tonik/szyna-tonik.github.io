@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Extend Workflows vs LlamaIndex Workflows: Versioning, Release Control and Replay — LlamaIndex AI Reference
+    </title><meta name="description" content="Compare Extend and LlamaIndex at the level of the released workflow: routing, prompts, models, schemas and validators."><link rel="canonical" href="https://www.llamaindex.ai/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay"><meta property="og:title" content="Extend Workflows vs LlamaIndex Workflows: Versioning, Release Control and Replay"><meta property="og:description" content="Compare Extend and LlamaIndex at the level of the released workflow: routing, prompts, models, schemas and validators."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Extend Workflows vs LlamaIndex Workflows: Versioning, Release Control and Replay","description":"Compare Extend and LlamaIndex at the level of the released workflow: routing, prompts, models, schemas and validators.","datePublished":"2026-10-14","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/python/llamaagents/workflows/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#what-to-build-and-verify-with-llamaindex-workflows">What to build and verify with LlamaIndex Workflows</a><a href="#which-version-boundaries-exist-in-a-document-pipeline">Which version boundaries exist in a document pipeline?</a><a href="#how-do-extend-workflow-references-behave">How do Extend workflow references behave?</a><a href="#what-does-a-useful-deployment-manifest-look-like">What does a useful deployment manifest look like?</a><a href="#a-contract-test-for-a-moving-extract-reference">A contract test for a moving Extract reference</a><a href="#how-should-routing-changes-be-reviewed">How should routing changes be reviewed?</a><a href="#how-do-agent-managed-settings-change-the-record">How do agent-managed settings change the record?</a><a href="#when-is-extend-a-good-fit">When is Extend a good fit?</a><a href="#audit-one-deployed-graph">Audit one deployed graph</a></aside><article><h1>Extend Workflows vs LlamaIndex Workflows: Versioning, Release Control and Replay</h1><div class="meta">PUBLISHED2026-10-14 · UPDATED 2026-11-04</div><p class="lede">Compare Extend and LlamaIndex at the level of the released workflow: routing, prompts, models, schemas and validators.</p><div class="actions"><a class="button" href="/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/extend-workflows-vs-llamaindex-workflows-versioning-release-control-and-replay.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p>Compare Extend and LlamaIndex at the level of the released workflow: routing, prompts, models, schemas and validators. Extend’s immutable definition does not automatically freeze a step that references “latest.” A LlamaIndex implementation should make those dependencies explicit too, so the release record can explain a past decision and support a controlled upgrade.</p>
+<p><em>Published by LlamaIndex. This is a configuration-analysis guide, not a report of an unexpected production change.</em></p>
+<h2 id="what-to-build-and-verify-with-llamaindex-workflows">What to build and verify with LlamaIndex Workflows</h2>
+<p>Use the LlamaIndex workflow implementation to make routing, extraction, validation and review steps explicit. Store the code revision and configuration with the release, then link them to raw outputs and the acceptance-policy revision. This is a recommended release design for a configured application, not a guarantee that a pinned package freezes every hosted dependency. <a href="https://developers.llamaindex.ai/python/llamaagents/workflows/">LlamaIndex Workflows</a>.</p>
+<p>Evaluate one full release and rollback on each stack. The useful differentiation is the control and integration your implementation delivers, measured by the ability to identify what ran and restore the intended behavior.</p>
+<h2 id="which-version-boundaries-exist-in-a-document-pipeline">Which version boundaries exist in a document pipeline?</h2>
+<p>Treat the deployed system as a collection of references:</p>
+<table>
+<thead>
+<tr>
+<th>Boundary</th>
+<th>What to record</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API contract</td>
+<td>Request and response version used by the client</td>
+</tr>
+<tr>
+<td>Workflow</td>
+<td>Published graph and routing definition</td>
+</tr>
+<tr>
+<td>Processor</td>
+<td>Saved extractor, classifier or splitter configuration</td>
+</tr>
+<tr>
+<td>Base engine</td>
+<td>Selected model/processor family and version</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>Dataset, scorer and acceptance-policy revision</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Code that transforms and consumes the result</td>
+</tr>
+</tbody></table>
+<p>When yesterday&#39;s output differs from today&#39;s, this record gives the investigating engineer a place to start. Record service-managed choices where they are exposed, and mark what remains outside your control.</p>
+<h2 id="how-do-extend-workflow-references-behave">How do Extend workflow references behave?</h2>
+<p>Extend supports published immutable workflow versions and both saved processor references and inline configurations. Its documentation allows “latest” for Extract references but disallows it for Classify and Split, whose routing IDs depend on configuration. <a href="https://docs.extend.ai/workflows/overview">Workflow lifecycle</a>, <a href="https://docs.extend.ai/workflows/configuring-workflows">configuration and version rules</a>.</p>
+<p>Inline configuration avoids a workspace-specific processor ID, which helps when moving a definition between environments. Check the underlying engine&#39;s version policy separately. <a href="https://docs.extend.ai/workflows/configuring-workflows">Inline configuration guidance</a>.</p>
+<h2 id="what-does-a-useful-deployment-manifest-look-like">What does a useful deployment manifest look like?</h2>
+<p>A manifest should capture the resolved choices required to understand a run. The following is illustrative pseudocode, not an Extend API request:</p>
+<pre><code class="language-yaml">release: accounts-payable-2026-10
+api_contract: explicitly_recorded
+workflow_version: explicitly_recorded
+steps:
+  classifier:
+    configuration_version: pinned
+    routing_ids: reviewed
+  extractor:
+    configuration_version: pinned
+    base_engine_version: recorded
+acceptance_suite:
+  dataset_hash: recorded
+  scorer_revision: recorded
+  policy_revision: recorded
+</code></pre>
+<p>The exact field names should match the team&#39;s deployment tooling. What matters is that the manifest distinguishes a fixed reference from a moving alias and records how a moving alias was resolved.</p>
+<p>Store the manifest alongside evaluation results. A score without a reproducible configuration is difficult to interpret later, especially when the product changes between procurement and rollout.</p>
+<h2 id="a-contract-test-for-a-moving-extract-reference">A contract test for a moving Extract reference</h2>
+<p>Imagine a hypothetical workflow whose outer version remains unchanged while an extraction reference points to “latest.” A new extractor configuration changes how an optional field is represented. The downstream application expects an empty string, but the new output uses null.</p>
+<p>The extraction may be reasonable, and the workflow may still execute successfully. The failure occurs at the application boundary. A test limited to whether the API returned success would miss it.</p>
+<p>This example does not claim Extend made such a change. It illustrates why contract tests should cover output semantics as well as orchestration. Include null handling, array shape, field presence and routing outcomes in the acceptance suite.</p>
+<h2 id="how-should-routing-changes-be-reviewed">How should routing changes be reviewed?</h2>
+<p>Review the taxonomy and graph together. For every category or branch ID, confirm that the intended destination exists and that unknown inputs have a defined path.</p>
+<p>A renamed display label may be harmless when the stable ID remains unchanged. A changed ID can require corresponding graph changes. Treat that difference as an interface migration rather than a cosmetic edit.</p>
+<p>Test a small set of representative paths before deployment: the common route, an unknown category, a validation failure, a human-review route and a terminal error. These cases help establish that the graph does what the team expects, even before the accuracy of individual models is considered.</p>
+<p>Also preserve a rollback plan. A previous workflow definition is most useful when the referenced processor configurations and application expectations are still available and compatible.</p>
+<h2 id="how-do-agent-managed-settings-change-the-record">How do agent-managed settings change the record?</h2>
+<p>Some systems choose internal strategies dynamically. Extend Operator manages several extraction controls and exposes effective settings on the run configuration, while submitted values for managed controls may not determine runtime behavior. <a href="https://docs.extend.ai/extraction/operator">Operator managed settings</a>.</p>
+<p>Save the submitted configuration and the effective run configuration together. The difference may explain an output that cannot be reproduced from the request alone.</p>
+<p>Keep that record for LlamaIndex comparisons too. Pinning improves traceability; identical outputs also depend on the system&#39;s execution behavior and determinism guarantees.</p>
+<h2 id="when-is-extend-a-good-fit">When is Extend a good fit?</h2>
+<p>Extend is a strong candidate for teams that value a managed workflow graph with saved processors, inline options and explicit routing semantics. Those capabilities should be credited in a comparison.</p>
+<p>For a LlamaIndex comparison, walk through one release and rollback with the same application contract tests. That exercise can establish what configuration must be restored and which dependencies remain outside the release artifact.</p>
+<h2 id="audit-one-deployed-graph">Audit one deployed graph</h2>
+<p>Evaluate a concrete LlamaIndex workflow with its code, model dependencies, schemas and validators recorded together. Run the same release, regression and rollback exercise on the alternative. Choose the implementation that supplies the required operating control, with the boundaries of hosted dependencies documented.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

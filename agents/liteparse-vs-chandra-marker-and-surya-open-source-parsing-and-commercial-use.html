@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      LiteParse vs Chandra, Marker and Surya: Local Parsing and Commercial Use — LlamaIndex AI Reference
+    </title><meta name="description" content="Compare LiteParse with Chandra, Marker and Surya by deployment, license terms, output requirements and the cost of a usable document workflow."><link rel="canonical" href="https://www.llamaindex.ai/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use"><meta property="og:title" content="LiteParse vs Chandra, Marker and Surya: Local Parsing and Commercial Use"><meta property="og:description" content="Compare LiteParse with Chandra, Marker and Surya by deployment, license terms, output requirements and the cost of a usable document workflow."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"LiteParse vs Chandra, Marker and Surya: Local Parsing and Commercial Use","description":"Compare LiteParse with Chandra, Marker and Surya by deployment, license terms, output requirements and the cost of a usable document workflow.","datePublished":"2026-10-02","dateModified":"2026-11-16","url":"https://www.llamaindex.ai/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#short-answer">Short answer</a><a href="#recent-datalab-releases-to-account-for">Recent Datalab releases to account for</a><a href="#separate-the-components">Separate the components</a><a href="#why-open-weights-are-not-a-deployment-decision">Why open weights are not a deployment decision</a><a href="#compare-usable-output-not-just-local-execution">Compare usable output, not just local execution</a></aside><article><h1>LiteParse vs Chandra, Marker and Surya: Local Parsing and Commercial Use</h1><div class="meta">PUBLISHED2026-10-02 · UPDATED 2026-11-16</div><p class="lede">Compare LiteParse with Chandra, Marker and Surya by deployment, license terms, output requirements and the cost of a usable document workflow.</p><div class="actions"><a class="button" href="/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/liteparse-vs-chandra-marker-and-surya-open-source-parsing-and-commercial-use.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><h2 id="short-answer">Short answer</h2>
+<p>LiteParse is an Apache-2.0-licensed local parser for teams that need a permissive, local-first starting point. Chandra, Marker and Surya can also be evaluated locally, but code, model weights, hosted services and commercial deployment rights are separate questions. Choose the system that your organization may use under its current terms and that produces the information your application actually needs.</p>
+<p>This article is technical guidance, not legal advice. License terms and model versions change; have the applicable agreements and source licenses reviewed for your intended use.</p>
+<h2 id="recent-datalab-releases-to-account-for">Recent Datalab releases to account for</h2>
+<p>Datalab’s recent releases include Chandra 2.7 in balanced and accurate API modes, Marker 2.2.0, and Surya 0.24.0. Each release should be treated as a new configuration in an evaluation—not as proof that an older benchmark or license review applies unchanged. Check the current <a href="https://github.com/datalab-to/chandra">Chandra repository</a>, <a href="https://github.com/datalab-to/marker/releases">Marker releases</a>, and <a href="https://github.com/datalab-to/surya/releases">Surya releases</a> before making a deployment decision.</p>
+<h2 id="separate-the-components">Separate the components</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Question to answer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Application code</td>
+<td>What license applies to the parser implementation?</td>
+</tr>
+<tr>
+<td>Model weights</td>
+<td>What terms apply to running, modifying or redistributing the weights?</td>
+</tr>
+<tr>
+<td>Evaluation data</td>
+<td>Can the documents and annotations be used as intended?</td>
+</tr>
+<tr>
+<td>Dependencies</td>
+<td>Do their licenses add obligations?</td>
+</tr>
+<tr>
+<td>Hosted or on-prem service</td>
+<td>What contract, support and data terms apply?</td>
+</tr>
+</tbody></table>
+<p>LiteParse’s Apache-2.0 license covers LiteParse itself. It does not grant rights to third-party models or commercial services selected around it. <a href="https://github.com/run-llama/liteparse">LiteParse’s repository</a> is the controlling public source for its code license.</p>
+<h2 id="why-open-weights-are-not-a-deployment-decision">Why open weights are not a deployment decision</h2>
+<p>Public availability can make a model inspectable and easy to test. It does not necessarily mean unrestricted commercial use. Datalab’s public projects distinguish code licenses from model terms; threshold and competitive-use provisions should be read in the current source text, rather than inferred from a blog post or an earlier release.</p>
+<p>For a local proof of concept, record the commit, model version, hardware, OCR configuration, input types and output format. For a customer-facing service, add the intended use, entity details, redistribution plan, data controls and support expectations to the review.</p>
+<h2 id="compare-usable-output-not-just-local-execution">Compare usable output, not just local execution</h2>
+<p>Run a representative set through LiteParse and the alternatives. Include ordinary PDFs as well as scanned forms, complex tables, charts, Office files and documents with poor image quality. Evaluate layout preservation, source locations, Markdown or structured output, latency, memory use and the manual work needed after parsing.</p>
+<p>If a purely local workflow misses required information, evaluate a managed service separately. LlamaParse can provide a hosted or private deployment path for workflows where managed accuracy, extraction and operational support are appropriate. The relevant comparison is the complete cost and reliability of an accepted document, not whether a tool can be installed locally.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Reducto vs LlamaParse and LlamaExtract Pricing: Quality per Accepted Document — LlamaIndex AI Reference
+    </title><meta name="description" content="LlamaExtract’s published results give buyers specific accuracy and grounding advantages to weigh against Reducto’s processing costs."><link rel="canonical" href="https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document"><meta property="og:title" content="Reducto vs LlamaParse and LlamaExtract Pricing: Quality per Accepted Document"><meta property="og:description" content="LlamaExtract’s published results give buyers specific accuracy and grounding advantages to weigh against Reducto’s processing costs."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reducto vs LlamaParse and LlamaExtract Pricing: Quality per Accepted Document","description":"LlamaExtract’s published results give buyers specific accuracy and grounding advantages to weigh against Reducto’s processing costs.","datePublished":"2026-11-04","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#where-llamaextract-performs-better-on-extractbench">Where LlamaExtract performs better on ExtractBench</a><a href="#start-with-the-right-product-rate">Start with the right product rate</a><a href="#build-a-workflow-bill-of-materials">Build a workflow bill of materials</a><a href="#one-minute-versus-three-minutes-of-review">One minute versus three minutes of review</a><a href="#define-accepted-before-dividing-by-it">Define “accepted” before dividing by it</a><a href="#measure-when-the-application-can-use-the-result">Measure when the application can use the result</a><a href="#confirm-the-quote-before-publishing-the-comparison">Confirm the quote before publishing the comparison</a></aside><article><h1>Reducto vs LlamaParse and LlamaExtract Pricing: Quality per Accepted Document</h1><div class="meta">PUBLISHED2026-11-04 · UPDATED 2026-11-04</div><p class="lede">LlamaExtract’s published results give buyers specific accuracy and grounding advantages to weigh against Reducto’s processing costs.</p><div class="actions"><a class="button" href="/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/reducto-vs-llamaparse-and-llamaextract-pricing-quality-per-accepted-document.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p>LlamaExtract’s published results give buyers specific accuracy and grounding advantages to weigh against Reducto’s processing costs. Standard ExtractBench has nearly tied overall value scores for Agentic Plus and Deep Extract, while the Pro snapshot shows a larger gap on difficult documents. Price the configuration that meets your acceptance rule, including review, rather than comparing unrelated Parse and Extract rates.</p>
+<h2 id="where-llamaextract-performs-better-on-extractbench">Where LlamaExtract performs better on ExtractBench</h2>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>Value F1</th>
+<th>Word grounding</th>
+<th>Recorded cost per 1,000 pages ($)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LlamaExtract Agentic Plus</td>
+<td>96.17</td>
+<td>83.25</td>
+<td>75.00</td>
+</tr>
+<tr>
+<td>LlamaExtract Agentic</td>
+<td>95.65</td>
+<td>82.33</td>
+<td>31.20</td>
+</tr>
+<tr>
+<td>Reducto Deep Extract</td>
+<td>96.08</td>
+<td>50.76</td>
+<td>63.50</td>
+</tr>
+</tbody></table>
+<p>The standard suite records Agentic at $31.20 per 1,000 pages and 95.65 Value F1, while Agentic Plus and Reducto Deep Extract score 96.17 and 96.08 at $75.00 and $63.50. Plus is more expensive here; its case depends on the grounding and long-tail results rather than the lowest page price. On Pro, Plus reaches 77.70 Value F1 and 38% perfect documents versus 56.35 and 3% for Reducto Deep. <a href="https://github.com/run-llama/ExtractBench/blob/7004e297707163c492e5c449d89af3c708996f59/leaderboard-pro.csv">Pro results</a>.</p>
+<p>These are published results from the pinned ExtractBench snapshot at commit 7004e29, checked on November 4, 2026. The suite covers 370 documents and 4,869 pages. Value F1 measures extracted values; it is not a straight-through-processing rate. LlamaIndex publishes the benchmark and develops LlamaExtract, now documented within LlamaParse Extract. <a href="https://github.com/run-llama/ExtractBench/blob/7004e297707163c492e5c449d89af3c708996f59/leaderboard.csv">Pinned results</a>, <a href="https://github.com/run-llama/ExtractBench/blob/7004e297707163c492e5c449d89af3c708996f59/docs/extractbench.md">methodology</a>.</p>
+<h2 id="start-with-the-right-product-rate">Start with the right product rate</h2>
+<p>The reviewed rate card, effective September 1, lists $10 per 1,000 pages for r-1 Parse, $20 for Extract and $40 for Deep Extract. Extraction pricing includes parsing rather than automatically requiring an additional Parse charge. Contracts and optional features can change the applicable total. These figures are a dated list-price reference, not an account-specific quote. <a href="https://docs.reducto.ai/reference/credit-usage">Reducto usage and pricing</a></p>
+<p>The product distinction matters immediately. A one-cent parsing result should not be compared with another vendor&#39;s fully configured extraction result as if both purchased the same output. First decide whether the application needs document content, schema-defined fields or a more involved extraction workflow.</p>
+<p>Only then should the team compare the rates for configurations that meet that requirement.</p>
+<h2 id="build-a-workflow-bill-of-materials">Build a workflow bill of materials</h2>
+<p>Use a bill of materials for the workflow. Include the API operations needed to produce the output, any optional processing, application infrastructure and the work required when automation does not finish the job.</p>
+<table>
+<thead>
+<tr>
+<th>Cost category</th>
+<th>Input to collect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Processing</td>
+<td>Applicable product rate and billable volume</td>
+</tr>
+<tr>
+<td>Features</td>
+<td>Required citations, charts or other options</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>Frequency and handling cost of incomplete outputs</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Minutes spent verifying or correcting results</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Ongoing engineering and operational effort</td>
+</tr>
+<tr>
+<td>Delay</td>
+<td>Business consequence of waiting for usable output</td>
+</tr>
+</tbody></table>
+<p>Keep one-time implementation cost separate from recurring operating cost. A small pilot may be dominated by integration effort, while a high-volume deployment may be dominated by processing and review.</p>
+<p>Also distinguish documents from pages. Two workloads with the same page count can require different numbers of review decisions and different downstream actions.</p>
+<h2 id="one-minute-versus-three-minutes-of-review">One minute versus three minutes of review</h2>
+<p>Consider an illustrative workload of 10,000 one-page documents. Suppose configuration A costs $0.02 per document and sends 5% of documents to review. Configuration B costs $0.04 and sends 2% to review. Assume each reviewed document takes one minute and reviewer time costs $30 per hour.</p>
+<p>These are invented scenario inputs, not measured Reducto or LlamaIndex results. Configuration A would have $200 in processing charges and $250 in review time, for $450 before other costs. Configuration B would have $400 in processing charges and $100 in review time, for $500.</p>
+<p>Under those assumptions, the lower processing rate remains cheaper. If review takes three minutes instead, the totals become $950 and $700. The conclusion changes because review effort changes, not because one vendor was assigned an automatic accuracy advantage.</p>
+<p>Replace the scenario inputs with applicable pricing and measured review effort before using the result in a purchasing decision.</p>
+<h2 id="define-accepted-before-dividing-by-it">Define “accepted” before dividing by it</h2>
+<p>Define an accepted document before estimating cost per accepted document. A result may require correct fields, complete records, sufficient evidence and successful downstream validation. Merely returning an API response does not necessarily satisfy that contract.</p>
+<p>Track false acceptance separately from review. A workflow that quietly accepts incorrect outputs can appear inexpensive because it avoids review, while creating costs elsewhere. Do not reward that behavior in the calculator.</p>
+<p>Report the numerator and denominator explicitly. Total operating cost divided by accepted documents is useful only when the acceptance standard is consistent across configurations. If one workflow includes manual correction, count that work and state that the final result is assisted rather than fully automated.</p>
+<h2 id="measure-when-the-application-can-use-the-result">Measure when the application can use the result</h2>
+<p>Use the application&#39;s time to a usable result. Reducto documents concurrency behavior in which work can queue, so service processing duration alone may differ from what the caller experiences. <a href="https://docs.reducto.ai/reference/throttling">Reducto concurrency throttling</a></p>
+<p>The Python SDK also documents automatic retries for selected failures. Retry behavior affects elapsed time and should be recorded, but the reviewed SDK behavior does not establish that every retry produces an additional billable charge. Do not invent a double-billing assumption. <a href="https://github.com/reductoai/reducto-python-sdk">Reducto Python SDK</a></p>
+<p>For an overnight batch, a longer turnaround may be acceptable. For an interactive workflow, a similar delay may create abandonment or require a different user experience. Evaluate latency against the business process rather than a universal preference for the smallest number.</p>
+<h2 id="confirm-the-quote-before-publishing-the-comparison">Confirm the quote before publishing the comparison</h2>
+<p>Check the account rate card, billing units and enabled features. The reviewed Reducto chart documentation and pricing page contain inconsistent language about advanced-chart charges, so chart-heavy totals need confirmation. <a href="https://docs.reducto.ai/configs/parse/chart-extraction">Chart extraction documentation</a></p>
+<p>The published LlamaExtract quality and grounding results supply concrete reasons to include it in the cost trial. Keep the calculator’s assumptions visible so the actual quote, review work and accepted outputs determine the economical choice.</p>
+<h3 id="can-a-benchmark-score-stand-in-for-a-review-rate">Can a benchmark score stand in for a review rate?</h3>
+<p>No. Review depends on the workload and the acceptance policy. Measure how often people intervene and how long the intervention takes. A benchmark percentage does not supply those inputs.</p>
+<h3 id="should-parse-be-added-to-every-extract-charge">Should Parse be added to every Extract charge?</h3>
+<p>The reviewed Reducto rate card includes parsing in extraction pricing. Adding both automatically would overstate that workflow’s listed cost; check the applicable configuration and contract.</p>
+<p>Use the published results to choose the LlamaExtract tier worth pricing, with grounding and long-tail requirements explicit. Compare the actual Reducto alternative, then replace benchmark page costs with current quotes and measured acceptance rates. Select the complete workflow on accepted-document cost rather than claiming that Plus is always the cheapest page.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

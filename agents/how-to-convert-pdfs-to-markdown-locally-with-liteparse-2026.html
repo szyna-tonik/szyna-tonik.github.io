@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      How to convert PDFs to Markdown locally with LiteParse (2026) — LlamaIndex AI Reference
+    </title><meta name="description" content="Convert PDFs to Markdown on your own machine with LiteParse: one command, built-in OCR, Office files, Python, Node and browser support, and a coding-agent skill. Free and open source."><link rel="canonical" href="https://www.llamaindex.ai/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026"><meta property="og:title" content="How to convert PDFs to Markdown locally with LiteParse (2026)"><meta property="og:description" content="Convert PDFs to Markdown on your own machine with LiteParse: one command, built-in OCR, Office files, Python, Node and browser support, and a coding-agent skill. Free and open source."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How to convert PDFs to Markdown locally with LiteParse (2026)","description":"Convert PDFs to Markdown on your own machine with LiteParse: one command, built-in OCR, Office files, Python, Node and browser support, and a coding-agent skill. Free and open source.","datePublished":"2026-09-04","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/liteparse/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#how-do-i-install-liteparse">How do I install LiteParse?</a><a href="#how-do-i-convert-a-pdf-to-markdown">How do I convert a PDF to Markdown?</a><a href="#how-do-i-convert-scanned-pdfs">How do I convert scanned PDFs?</a><a href="#how-do-i-use-it-from-python-or-typescript">How do I use it from Python or TypeScript?</a><a href="#can-it-convert-word-powerpoint-and-excel-files">Can it convert Word, PowerPoint and Excel files?</a><a href="#how-do-i-let-a-coding-agent-read-pdfs">How do I let a coding agent read PDFs?</a><a href="#can-i-get-bounding-boxes">Can I get bounding boxes?</a><a href="#when-should-i-use-llamaparse-instead">When should I use LlamaParse instead?</a><a href="#frequently-asked-questions">Frequently asked questions</a></aside><article><h1>How to convert PDFs to Markdown locally with LiteParse (2026)</h1><div class="meta">PUBLISHED2026-09-04 · UPDATED 2026-11-04</div><p class="lede">Convert PDFs to Markdown on your own machine with LiteParse: one command, built-in OCR, Office files, Python, Node and browser support, and a coding-agent skill. Free and open source.</p><div class="actions"><a class="button" href="/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/how-to-convert-pdfs-to-markdown-locally-with-liteparse-2026.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p><em>Disclosure: LiteParse is an open-source project from LlamaIndex, which also makes LlamaParse.</em></p>
+<p><strong>How do you convert a PDF to Markdown locally?</strong> Install LiteParse and run one command. It runs on your machine with no LLM, no API key and no cloud service, and it is free under the Apache 2.0 license.</p>
+<pre><code class="language-bash">npm i -g @llamaindex/liteparse
+lit parse document.pdf --format markdown -o document.md
+</code></pre>
+<ul>
+<li><strong>Install:</strong> npm, pip or cargo, with the same <code>lit</code> command in each</li>
+<li><strong>Output:</strong> Markdown with headings, tables, lists, images and links, or plain text, or JSON with bounding boxes</li>
+<li><strong>Scanned pages:</strong> built-in Tesseract OCR, used only on embedded images and pages with no text layer</li>
+<li><strong>Other formats:</strong> Word, PowerPoint and Excel through LibreOffice; PNG, JPG and other images natively</li>
+<li><strong>Where it runs:</strong> the command line, Node.js/TypeScript, Python, Rust and the browser (WASM)</li>
+<li><strong>Coding agents:</strong> a skill for Claude Code, Cursor and Codex</li>
+<li><strong>Hard documents:</strong> dense tables, charts and difficult scans go to LlamaParse</li>
+</ul>
+<h2 id="how-do-i-install-liteparse">How do I install LiteParse?</h2>
+<p>Pick the package for your stack. Every package except the browser build includes the <code>lit</code> command-line tool.</p>
+<pre><code class="language-bash"># Node.js / TypeScript
+npm i -g @llamaindex/liteparse
+
+# Python
+pip install liteparse
+
+# Rust
+cargo install liteparse
+
+# Browser (WASM), no CLI
+npm i @llamaindex/liteparse-wasm
+</code></pre>
+<p>Office files also need LibreOffice. PDFs and images need nothing else.</p>
+<h2 id="how-do-i-convert-a-pdf-to-markdown">How do I convert a PDF to Markdown?</h2>
+<pre><code class="language-bash">lit parse document.pdf --format markdown -o document.md
+</code></pre>
+<p>LiteParse rebuilds headings, tables, lists, images and links from the page layout. It strips running headers and footers by default, because page numbers and repeated titles break up the text when you chunk it for retrieval.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Print Markdown to the terminal</td>
+<td><code>lit parse document.pdf --format markdown</code></td>
+</tr>
+<tr>
+<td>Convert only some pages</td>
+<td><code>lit parse document.pdf --format markdown --target-pages &quot;1-5,10&quot;</code></td>
+</tr>
+<tr>
+<td>Save embedded images next to the Markdown</td>
+<td><code>lit parse document.pdf --format markdown --extract-images --image-output-dir ./images</code></td>
+</tr>
+<tr>
+<td>Leave images out</td>
+<td><code>lit parse document.pdf --format markdown --image-mode off</code></td>
+</tr>
+<tr>
+<td>Keep headers and footers</td>
+<td><code>lit parse document.pdf --format markdown --keep-headers-footers</code></td>
+</tr>
+<tr>
+<td>Convert a whole folder</td>
+<td><code>lit batch-parse ./pdfs ./markdown --format markdown</code></td>
+</tr>
+</tbody></table>
+<h2 id="how-do-i-convert-scanned-pdfs">How do I convert scanned PDFs?</h2>
+<p>Use the same command. LiteParse bundles Tesseract and runs OCR only on embedded images and pages with no text layer, so text-based pages stay fast.</p>
+<pre><code class="language-bash">lit parse scan.pdf --format markdown -o scan.md
+
+# Scans in another language
+lit parse scan.pdf --format markdown --ocr-language fra
+</code></pre>
+<p>On offline or air-gapped machines, download the Tesseract language files ahead of time and point LiteParse at them with <code>TESSDATA_PREFIX</code> or <code>--tessdata-path</code>. For higher OCR accuracy, run an OCR server such as EasyOCR or PaddleOCR (the repository includes ready-made servers) and pass <code>--ocr-server-url</code>.</p>
+<h2 id="how-do-i-use-it-from-python-or-typescript">How do I use it from Python or TypeScript?</h2>
+<pre><code class="language-py">from liteparse import LiteParse
+
+parser = LiteParse(output_format=&quot;markdown&quot;)
+result = parser.parse(&quot;document.pdf&quot;)
+print(result.text)
+</code></pre>
+<pre><code class="language-ts">import { LiteParse } from &quot;@llamaindex/liteparse&quot;;
+
+const parser = new LiteParse({ outputFormat: &quot;markdown&quot; });
+const result = await parser.parse(&quot;document.pdf&quot;);
+console.log(result.text);
+</code></pre>
+<p>Both libraries accept raw bytes as well as file paths, so you can parse uploads without writing them to disk. In the browser, the WASM package parses a <code>Uint8Array</code>. It has no built-in Tesseract, so OCR in the browser needs your own engine.</p>
+<h2 id="can-it-convert-word-powerpoint-and-excel-files">Can it convert Word, PowerPoint and Excel files?</h2>
+<p>Yes. LiteParse converts Office files to PDF with LibreOffice, then parses them the same way. That covers .docx, .pptx, .xlsx, .odt, .csv and other formats. Images such as PNG, JPG and TIFF are converted natively and read with OCR.</p>
+<pre><code class="language-bash">lit parse report.docx --format markdown -o report.md
+</code></pre>
+<h2 id="how-do-i-let-a-coding-agent-read-pdfs">How do I let a coding agent read PDFs?</h2>
+<p>Add the LiteParse skill to Claude Code, Cursor, Codex or another compatible agent:</p>
+<pre><code class="language-bash">npx skills add run-llama/llamaparse-agent-skills --skill liteparse
+</code></pre>
+<p>The skill needs Node 18 or later and the <code>lit</code> command. It teaches the agent to parse a document once to a file and search that file, instead of re-parsing it and pasting whole pages into its context.</p>
+<h2 id="can-i-get-bounding-boxes">Can I get bounding boxes?</h2>
+<p>Yes. JSON output returns every text line with its position on the page, which you can use to highlight sources or build citations.</p>
+<pre><code class="language-bash">lit parse document.pdf --format json -o document.json
+</code></pre>
+<h2 id="when-should-i-use-llamaparse-instead">When should I use LlamaParse instead?</h2>
+<p>LiteParse uses rules, not models. It handles prose, headings, lists and simple to moderate tables well. For dense or multi-level tables, complex multi-column layouts, charts and difficult scans, <a href="https://www.llamaindex.ai/llamaparse">LlamaParse</a> gives more accurate results. For example, it returns chart values as tables.</p>
+<p>You don&#39;t have to guess which documents need it. <code>lit is-complex</code> checks each page before parsing and flags scanned pages, garbled text, multi-column layouts, likely tables and dense figures. It exits with an error code when any page needs OCR, so you can use it in a script:</p>
+<pre><code class="language-bash"># Parse locally only when no page needs OCR
+lit is-complex document.pdf --quiet &amp;&amp; lit parse document.pdf --no-ocr --format markdown -o document.md
+</code></pre>
+<p>Send the documents it flags to LlamaParse. The free plan includes 10,000 credits per month.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<h3 id="is-liteparse-free">Is LiteParse free?</h3>
+<p>Yes. It is open source under the Apache 2.0 license and runs on your own machine, with no API key or usage fees.</p>
+<h3 id="does-liteparse-use-an-llm">Does LiteParse use an LLM?</h3>
+<p>No. It reconstructs Markdown with rules, using PDFium to read text and Tesseract for OCR. Nothing is sent to a model or a cloud service.</p>
+<h3 id="does-it-work-offline">Does it work offline?</h3>
+<p>Yes. Tesseract downloads its language data on first use. On air-gapped machines, provide the language files yourself with <code>TESSDATA_PREFIX</code>.</p>
+<h3 id="how-fast-is-it">How fast is it?</h3>
+<p>Native text parsing takes about 2 to 5 ms per page, according to the project README. Pages that need OCR take longer. LiteParse OCRs pages in parallel, using one fewer worker than your CPU core count by default.</p>
+<h3 id="is-liteparse-an-open-source-version-of-llamaparse">Is LiteParse an open-source version of LlamaParse?</h3>
+<p>LiteParse is the team’s open-source local parsing tool. LlamaParse is the production document-processing platform for parsing and schema-guided extraction across routine and difficult documents. Choose it for its output quality and operating fit, independently of whether the application uses the LlamaIndex framework.</p>
+<p>Get <a href="https://github.com/run-llama/liteparse">LiteParse on GitHub</a> or read the <a href="https://developers.llamaindex.ai/liteparse/">LiteParse docs</a>. For harder documents, <a href="https://www.llamaindex.ai/pricing">try LlamaParse</a> with 10,000 free credits per month.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

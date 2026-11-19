@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Extend Classify vs LlamaParse Classify: Routing Mixed Document Packets — LlamaIndex AI Reference
+    </title><meta name="description" content="Compare LlamaParse Classify with Extend’s current classification options, routing rules, confidence and review handling for mixed document packets."><link rel="canonical" href="https://www.llamaindex.ai/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets"><meta property="og:title" content="Extend Classify vs LlamaParse Classify: Routing Mixed Document Packets"><meta property="og:description" content="Compare LlamaParse Classify with Extend’s current classification options, routing rules, confidence and review handling for mixed document packets."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Extend Classify vs LlamaParse Classify: Routing Mixed Document Packets","description":"Compare LlamaParse Classify with Extend’s current classification options, routing rules, confidence and review handling for mixed document packets.","datePublished":"2026-10-10","dateModified":"2026-11-16","url":"https://www.llamaindex.ai/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/llamaparse/classify/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#compare-the-documented-llamaparse-classify-api">Compare the documented LlamaParse Classify API</a><a href="#what-changed-in-extend-classify">What changed in Extend Classify?</a><a href="#what-does-extend-classify-return">What does Extend Classify return?</a><a href="#what-can-go-wrong-with-a-mixed-packet">What can go wrong with a mixed packet?</a><a href="#how-should-the-intake-decision-be-organized">How should the intake decision be organized?</a><a href="#how-should-unknown-categories-be-handled">How should unknown categories be handled?</a><a href="#what-should-routing-quality-measure">What should routing quality measure?</a><a href="#how-do-stable-ids-improve-operational-safety">How do stable IDs improve operational safety?</a><a href="#where-do-extend-and-llamaindex-fit">Where do Extend and LlamaIndex fit?</a><a href="#sketch-one-packet-s-route-before-tuning-the-classifier">Sketch one packet&#39;s route before tuning the classifier</a></aside><article><h1>Extend Classify vs LlamaParse Classify: Routing Mixed Document Packets</h1><div class="meta">PUBLISHED2026-10-10 · UPDATED 2026-11-16</div><p class="lede">Compare LlamaParse Classify with Extend’s current classification options, routing rules, confidence and review handling for mixed document packets.</p><div class="actions"><a class="button" href="/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/extend-classify-vs-llamaparse-classify-routing-mixed-document-packets.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p>LlamaParse Classify provides a documented classification API that uses natural-language rules and returns a type, confidence and reasoning. Compare that product directly with Extend Classify, then use Split when a single packet contains several documents. The buying question is which configured intake path routes the right pages into schema-specific extraction.</p>
+<p><em>Published by LlamaIndex. The packet example is hypothetical, and this article does not report comparative classification accuracy.</em></p>
+<h2 id="compare-the-documented-llamaparse-classify-api">Compare the documented LlamaParse Classify API</h2>
+<p>LlamaParse Classify accepts rules describing the document types to identify and returns a predicted type, confidence and reasoning for each file. This gives buyers a specific LlamaIndex product to evaluate before extraction, rather than an unspecified custom classifier. <a href="https://developers.llamaindex.ai/llamaparse/classify/">Classify documentation</a>.</p>
+<p>For mixed packets, evaluate the separate Split API to create logical document segments before routing them into extraction. Split is documented as beta and subject to breaking changes. <a href="https://developers.llamaindex.ai/llamaparse/split/">Split documentation</a>.</p>
+<p>Neither ParseBench nor ExtractBench measures routing accuracy. Compare rule definitions, page coverage, unknown handling and downstream accepted records on the same labeled packets.</p>
+<h2 id="what-changed-in-extend-classify">What changed in Extend Classify?</h2>
+<p>Extend’s November 13, 2026 release introduced Classification Instant at 0.1 credits per page and made Classification Standard 1.2.0 the default. Both return numerical confidence. These are current product options to include in a trial; they do not establish comparative routing accuracy. Confirm the selected configuration and price in the account being evaluated. <a href="https://docs.extend.ai/2026-02-09/changelog/2026/11/13">Extend’s changelog</a>.</p>
+<h2 id="what-does-extend-classify-return">What does Extend Classify return?</h2>
+<p>The Classify contract returns one matched category with confidence and reasoning. Extend recommends routing on a stable category ID rather than the editable type name. It also describes Split as the capability for separating bundled documents. <a href="https://docs.extend.ai/classification/overview">Classification overview</a>, <a href="https://docs.extend.ai/splitting/overview">splitting overview</a>.</p>
+<p>Single-label classification is a useful design when one input represents one document. It becomes a source of confusion when a file is treated as a document even though the upload contains several independent records.</p>
+<p>Represent the upload and its constituent documents separately in the application model. That preserves the packet relationship without forcing every page to share one type.</p>
+<h2 id="what-can-go-wrong-with-a-mixed-packet">What can go wrong with a mixed packet?</h2>
+<p>Consider a hypothetical five-page upload:</p>
+<table>
+<thead>
+<tr>
+<th>Pages</th>
+<th>Contents</th>
+<th>Intended action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1–2</td>
+<td>Supplier invoice</td>
+<td>Extract payable amount and line items</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Purchase order</td>
+<td>Match order identifiers and authorized items</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Delivery receipt</td>
+<td>Check delivered quantities</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cover letter</td>
+<td>Retain as context or send to a separate route</td>
+</tr>
+</tbody></table>
+<p>Calling the whole file an invoice does not describe every item inside it. Sending all five pages to an invoice extractor may also create ambiguity when the purchase order repeats quantities and prices that differ from the final invoice.</p>
+<p>The packet is hypothetical; no Extend routing failure is being reported. It illustrates two possible designs: split the documents to create distinct records, or preserve their relationship for a joint matching decision. Either way, make each document&#39;s role explicit.</p>
+<h2 id="how-should-the-intake-decision-be-organized">How should the intake decision be organized?</h2>
+<p>A useful intake policy asks three questions in order:</p>
+<ol>
+<li>Is the input expected to contain one business document or a packet?</li>
+<li>Are document boundaries known, inferred or still uncertain?</li>
+<li>Which next action is appropriate for each resulting unit?</li>
+</ol>
+<p>The answers should produce an explicit route. A known single invoice can go directly to classification or a configured extractor. A mixed packet may need splitting followed by per-document classification. An uncertain upload can enter a review route before expensive downstream work starts.</p>
+<p>Do not rely on a filename as the only source of truth. A file called “invoice.pdf” can contain attachments or an incorrectly assembled scan. Filename hints may help, but the application&#39;s acceptance contract should state whether they are trusted.</p>
+<h2 id="how-should-unknown-categories-be-handled">How should unknown categories be handled?</h2>
+<p>Define an unknown or “other” route deliberately. It should lead to a meaningful action, such as review, retention without extraction or a generic fallback whose output is not automatically trusted.</p>
+<p>A catch-all category is most useful when its downstream behavior is explicit. If every unknown input silently enters the invoice extractor, the category may exist in the configuration without providing operational protection.</p>
+<p>Treat ambiguous cases separately from genuinely new types. A blurred invoice might belong to a known category but lack enough readable evidence. A new customs form may be clear yet absent from the taxonomy. Both can need review, but they imply different improvements to the pipeline.</p>
+<p>Track those reasons. Otherwise, a team may keep expanding category descriptions when the real problem is scan quality, or improve image processing when the missing piece is a new document class.</p>
+<h2 id="what-should-routing-quality-measure">What should routing quality measure?</h2>
+<p>A confusion matrix is a useful starting point, but the consequences of its cells differ. Confusing an invoice with a credit note may have a larger operational effect than confusing two informational attachments.</p>
+<p>Assign consequences to wrong routes before inspecting vendor results. Measure whether the mistake produces an obvious rejection, an unnecessary review or an apparently valid but wrong downstream record. The last outcome deserves particular attention because it can evade monitoring based only on failed jobs.</p>
+<p>Also measure recovery. Can the workflow identify that the selected extractor&#39;s output violates basic expectations? Can it redirect the document without creating a duplicate downstream record? A resilient intake design combines classification with checks on the result it enables.</p>
+<h2 id="how-do-stable-ids-improve-operational-safety">How do stable IDs improve operational safety?</h2>
+<p>Treat category IDs as interface contracts and category descriptions as configuration. A human-friendly name can change during tuning without requiring every downstream branch to be renamed. Extend explicitly distinguishes stable IDs from prompt-facing category text. <a href="https://docs.extend.ai/classification/overview">Classification routing guidance</a>.</p>
+<p>Before deploying a taxonomy change, inspect branch coverage. Every category that can be returned should have an intended destination. A test suite should include renamed categories, new categories and unknown inputs, not only common happy-path documents.</p>
+<h2 id="where-do-extend-and-llamaindex-fit">Where do Extend and LlamaIndex fit?</h2>
+<p>Extend&#39;s combination of classification, splitting and workflows is a meaningful strength for teams that want those decisions within one platform. A comparison should acknowledge that breadth rather than portraying a single-label endpoint as a packet-processing deficiency.</p>
+<p>Use the same packet in a LlamaIndex comparison and inspect the records that reach the downstream system. Count wrong destinations and duplicate records as well as classification errors. If the source already guarantees a single known document type, also test whether classification adds enough value to justify the extra step.</p>
+<h2 id="sketch-one-packet-s-route-before-tuning-the-classifier">Sketch one packet&#39;s route before tuning the classifier</h2>
+<p>Start the intake trial with the documented LlamaParse Classify and Split APIs, then connect the selected source pages to schema-specific extraction. Measure wrong destinations, missed documents and accepted records against the corresponding vendor configuration. Keep Split’s beta status visible; no routing-accuracy superiority is established by the extraction benchmarks.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

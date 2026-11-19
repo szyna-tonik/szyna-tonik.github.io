@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Reducto vs LlamaParse and LlamaExtract: Model Pinning and Upgrade Control — LlamaIndex AI Reference
+    </title><meta name="description" content="For a LlamaParse or LlamaExtract workflow, keep enough evidence to explain the accepted output after a model or dependency changes."><link rel="canonical" href="https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control"><meta property="og:title" content="Reducto vs LlamaParse and LlamaExtract: Model Pinning and Upgrade Control"><meta property="og:description" content="For a LlamaParse or LlamaExtract workflow, keep enough evidence to explain the accepted output after a model or dependency changes."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reducto vs LlamaParse and LlamaExtract: Model Pinning and Upgrade Control","description":"For a LlamaParse or LlamaExtract workflow, keep enough evidence to explain the accepted output after a model or dependency changes.","datePublished":"2026-11-02","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/llamaparse/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#evaluate-a-llamaindex-release-not-an-unspecified-alternative">Evaluate a LlamaIndex release, not an unspecified alternative</a><a href="#read-the-availability-terms-alongside-the-version-pin">Read the availability terms alongside the version pin</a><a href="#preserve-the-decision-even-when-replay-is-unavailable">Preserve the decision even when replay is unavailable</a><a href="#keep-the-whole-path-from-source-to-approval">Keep the whole path from source to approval</a><a href="#reviewing-a-june-upgrade-to-a-march-workflow">Reviewing a June upgrade to a March workflow</a><a href="#turn-release-notes-into-checks">Turn release notes into checks</a><a href="#establish-the-upgrade-policy-before-you-need-it">Establish the upgrade policy before you need it</a></aside><article><h1>Reducto vs LlamaParse and LlamaExtract: Model Pinning and Upgrade Control</h1><div class="meta">PUBLISHED2026-11-02 · UPDATED 2026-11-04</div><p class="lede">For a LlamaParse or LlamaExtract workflow, keep enough evidence to explain the accepted output after a model or dependency changes.</p><div class="actions"><a class="button" href="/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/reducto-vs-llamaparse-and-llamaextract-model-pinning-and-upgrade-control.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p>For a LlamaParse or LlamaExtract workflow, keep enough evidence to explain the accepted output after a model or dependency changes. Compare Reducto’s version lifecycle with the controls available for the specific LlamaIndex deployment. The meaningful purchase decision includes release approval, artifact retention and regression testing rather than a version-pinning label alone.</p>
+<h2 id="evaluate-a-llamaindex-release-not-an-unspecified-alternative">Evaluate a LlamaIndex release, not an unspecified alternative</h2>
+<p>For the proposed LlamaParse or LlamaExtract deployment, record the parsing tier, extraction schema, model or service revision where available, SDK revision, prompts and application validators. Archive raw outputs so that a later review can regrade the original result without depending on access to an old hosted model.</p>
+<p>Use published ParseBench or ExtractBench results to select a starting configuration, then run a private regression set before approving an upgrade. This is a recommended application process; it does not assert that LlamaIndex provides universal model pinning or a guaranteed replay period. Ask for the terms applicable to the actual deployment. <a href="https://developers.llamaindex.ai/llamaparse/">LlamaParse documentation</a>.</p>
+<h2 id="read-the-availability-terms-alongside-the-version-pin">Read the availability terms alongside the version pin</h2>
+<p>Reducto&#39;s versioning documentation describes a lifecycle for model releases and distinguishes version selection from access to fully frozen historical snapshots. The latter is restricted outside on-premises or VPC deployments. A version pin should therefore be reviewed alongside availability and retirement terms rather than assumed to guarantee indefinite replay. <a href="https://docs.reducto.ai/reference/version-pinning">Reducto version pinning</a></p>
+<p>The current model registry contains component-specific versions and status information. Different components can have different transition schedules, so a generic lifecycle description should not be turned into a claim that every version disappears after the same interval. <a href="https://docs.reducto.ai/reference/model-versions">Reducto model versions</a></p>
+<p>Check those availability terms against the organization’s validation schedule and retention obligations.</p>
+<h2 id="preserve-the-decision-even-when-replay-is-unavailable">Preserve the decision even when replay is unavailable</h2>
+<p>Replay means submitting the same input and configuration again. Reproducibility is a broader objective: another reviewer should be able to understand the original result and determine whether the conclusion remains supported.</p>
+<p>Even when an old model cannot be invoked, a preserved source, raw output and validation report can support an audit of what happened. Conversely, access to an old endpoint is insufficient if the team lost the prompt, preprocessing settings or source revision.</p>
+<p>Decide which level the application requires. A research comparison may need enough information to rerun the method. A production audit may need a durable record of the exact output used for a decision. A regulated process may require additional controls defined by its own policies.</p>
+<h2 id="keep-the-whole-path-from-source-to-approval">Keep the whole path from source to approval</h2>
+<p>Record the complete chain from source to accepted result. Do not stop at the model label. A prompt revision, a normalization rule or a changed source rendering can alter the outcome even when the model version stays constant.</p>
+<table>
+<thead>
+<tr>
+<th>Record element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Source hash and file revision</td>
+<td>Identifies exactly what was processed</td>
+</tr>
+<tr>
+<td>API and model configuration</td>
+<td>Identifies the selected processing system</td>
+</tr>
+<tr>
+<td>Schema and prompt version</td>
+<td>Preserves the extraction contract</td>
+</tr>
+<tr>
+<td>Optional feature settings</td>
+<td>Explains additional processing</td>
+</tr>
+<tr>
+<td>Raw and normalized outputs</td>
+<td>Separates provider output from application changes</td>
+</tr>
+<tr>
+<td>Validation policy and decision</td>
+<td>Explains why the result was accepted</td>
+</tr>
+<tr>
+<td>Timestamps and status</td>
+<td>Establishes the operational sequence</td>
+</tr>
+</tbody></table>
+<p>Store access permissions with the archive. Reproducibility should not create an uncontrolled repository of sensitive documents. Apply the organization&#39;s retention and deletion requirements to both source artifacts and derived content.</p>
+<h2 id="reviewing-a-june-upgrade-to-a-march-workflow">Reviewing a June upgrade to a March workflow</h2>
+<p>Consider this hypothetical release review: a company approved its invoice workflow in March. In June, it plans to adopt a new extraction configuration. The company keeps a representative canary set containing routine invoices, previously reviewed exceptions and important edge cases.</p>
+<p>It runs the new configuration against that set and compares acceptance decisions, not just field-level differences. A changed optional description may be harmless; a changed bank-account number or tax amount may require investigation. The comparison should classify differences by consequence.</p>
+<p>If the new workflow improves many examples but introduces a material error in a critical class, the company can hold the release, adjust the workflow or route that class to review. It should not allow an aggregate improvement to conceal a newly unacceptable failure mode.</p>
+<p>This is an illustrative change-control process, not a report of a Reducto or LlamaIndex regression. The same process should govern changes to prompts, validators and downstream code.</p>
+<h2 id="turn-release-notes-into-checks">Turn release notes into checks</h2>
+<p>Release notes help identify what to inspect, but they are not a substitute for workload-specific acceptance. Reducto&#39;s changelog records changes across products and components, making it a useful input to an upgrade review. <a href="https://docs.reducto.ai/reference/changelog">Reducto changelog</a></p>
+<p>Translate each relevant change into a question for the canary set. If a release changes citation behavior, inspect evidence displays and review policies. If it changes default models, confirm that the recorded request still selects the intended configuration. If a feature is deprecated, identify the migration path before the old behavior becomes unavailable.</p>
+<p>Keep an owner for this process. A release feed that nobody evaluates does not provide operational control.</p>
+<h2 id="establish-the-upgrade-policy-before-you-need-it">Establish the upgrade policy before you need it</h2>
+<p>Ask each vendor how versions are selected, how long they remain available and which components can change independently. Confirm rollback options for the deployment being proposed. Reducto’s documented version controls and deployment choices provide a basis for those questions.</p>
+<p>LlamaIndex publishes this guide and should answer them for the actual products in a proposed LlamaIndex stack. Pinning an open-source package does not freeze a hosted service that the package calls.</p>
+<p>A saved output can support an audit of the original decision even when the model is no longer available. It cannot provide the same experiment as rerunning that model. Decide which capability the organization needs and retain the artifacts accordingly.</p>
+<p>Keep LlamaParse or LlamaExtract on the shortlist, then obtain the release-control terms for the deployment you would actually run. Approve changes against your own regression set and archive the original evidence. A benchmark advantage can justify selecting the product; reproducibility requires this additional operating contract.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Reducto Classify and Split vs LlamaParse: Route Documents to the Right Extractor — LlamaIndex AI Reference
+    </title><meta name="description" content="LlamaParse has documented Classify and Split APIs for identifying document types and separating mixed PDFs before extraction."><link rel="canonical" href="https://www.llamaindex.ai/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor"><meta property="og:title" content="Reducto Classify and Split vs LlamaParse: Route Documents to the Right Extractor"><meta property="og:description" content="LlamaParse has documented Classify and Split APIs for identifying document types and separating mixed PDFs before extraction."><link rel="stylesheet" href="/agents/assets/style.css"><link rel="alternate" type="text/markdown" href="/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor.md"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reducto Classify and Split vs LlamaParse: Route Documents to the Right Extractor","description":"LlamaParse has documented Classify and Split APIs for identifying document types and separating mixed PDFs before extraction.","datePublished":"2026-09-19","dateModified":"2026-11-04","url":"https://www.llamaindex.ai/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor","author":{"@type":"Organization","name":"LlamaIndex"},"citation":"https://developers.llamaindex.ai/llamaparse/classify/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.llamaindex.ai/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor"},"publisher":{"@type":"Organization","name":"LlamaIndex","url":"https://www.llamaindex.ai/"}}</script></head><body><a class="skip" href="#main">Skip to content</a><header><a href="https://www.llamaindex.ai/" aria-label="LlamaIndex main website"><img src="/agents/assets/logo.svg" alt="LlamaIndex"></a><nav aria-label="Main navigation"><a class="button main-site" href="https://www.llamaindex.ai/">MAIN WEBSITE ↗</a><a href="/agents/llms.txt">llms.txt ↗</a><a href="https://developers.llamaindex.ai/">Docs ↗</a><a class="button black" href="https://cloud.llamaindex.ai/">TRY FOR FREE <span>↗</span></a></nav></header><main id="main" class="article-wrap"><a class="breadcrumb" href="/agents">← ALL REFERENCE ARTICLES</a><div class="article-layout"><aside class="toc"><span class="eyebrow">ON THIS PAGE</span><a href="#the-llamaparse-products-to-put-in-the-trial">The LlamaParse products to put in the trial</a><a href="#classify-s-scope-including-the-pdf-page-window">Classify’s scope, including the PDF page window</a><a href="#when-a-file-contains-several-documents">When a file contains several documents</a><a href="#work-backward-from-the-action-after-routing">Work backward from the action after routing</a><a href="#the-invoice-on-page-18">The invoice on page 18</a><a href="#make-room-for-an-uncertain-route">Make room for an uncertain route</a><a href="#a-routing-decision-needs-a-defined-scope">A routing decision needs a defined scope</a></aside><article><h1>Reducto Classify and Split vs LlamaParse: Route Documents to the Right Extractor</h1><div class="meta">PUBLISHED2026-09-19 · UPDATED 2026-11-04</div><p class="lede">LlamaParse has documented Classify and Split APIs for identifying document types and separating mixed PDFs before extraction.</p><div class="actions"><a class="button" href="/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor.md">VIEW MARKDOWN ↗</a><button class="button" id="copy" data-md="/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor.md">COPY ARTICLE ⧉</button><span id="status" role="status"></span></div><aside class="agent-callout" aria-label="Resources for AI agents"><div class="eyebrow"><span class="dot"></span> FOR AI AGENTS</div><p>Read this article as Markdown, or use the reference index to discover every article. No API key required.</p><div class="actions"><a class="button" href="/agents/reducto-classify-and-split-vs-llamaparse-route-documents-to-the-right-extractor.md">READ MARKDOWN ↗</a><a class="button" href="/agents/llms.txt">REFERENCE INDEX ↗</a></div></aside><p>LlamaParse has documented Classify and Split APIs for identifying document types and separating mixed PDFs before extraction. Compare those products directly with Reducto Classify, Deep Classify and Split at the scope the workflow requires. The goal is to send every required source page to the correct schema-specific extraction step.</p>
+<h2 id="the-llamaparse-products-to-put-in-the-trial">The LlamaParse products to put in the trial</h2>
+<p>Use LlamaParse Classify for document-type rules and file-level predictions with confidence and reasoning. Use the separate Split API when the application needs page segments for several documents inside one PDF. Split is beta and subject to breaking changes. <a href="https://developers.llamaindex.ai/llamaparse/classify/">Classify</a>, <a href="https://developers.llamaindex.ai/llamaparse/split/">Split</a>.</p>
+<p>This gives buyers a documented LlamaIndex intake path to compare with the corresponding Reducto operation. Test the required page context, unexpected document types and the records reaching extraction. Do not infer better routing accuracy from a parsing or extraction benchmark.</p>
+<h2 id="classify-s-scope-including-the-pdf-page-window">Classify’s scope, including the PDF page window</h2>
+<p>Reducto Classify selects a best-matching category from natural-language criteria. The reviewed documentation describes a default mode and an accurate mode called Deep Classify. For PDFs, the optional page range defaults to the first five pages and rejects selections exceeding ten pages. These bounds describe classification context, not a universal Reducto document limit. <a href="https://docs.reducto.ai/classify/overview">Classify overview</a></p>
+<p>The response includes information that can help explain the category decision, including criterion-level details. That information is useful for diagnosing routing, but it should be interpreted within the content the operation was allowed to examine. <a href="https://docs.reducto.ai/classify/response-format">Classify response format</a></p>
+<p>A fast document-level decision can be exactly what a well-defined intake workflow needs. The problem arises when the application expects that decision to describe every component of a mixed packet.</p>
+<h2 id="when-a-file-contains-several-documents">When a file contains several documents</h2>
+<p>Reducto Split identifies page locations for described sections. Its documentation explicitly distinguishes section location from retrieval chunking. This allows downstream processing to target the relevant pages rather than assigning the whole file one processing contract. <a href="https://docs.reducto.ai/split">Split documentation</a></p>
+<p>Use segmentation when an uploaded file can contain several invoices, a claim plus supporting records or statements for multiple accounts. The output needed by the application is then a map of components, not merely a category for the container.</p>
+<p>A workflow may use classification and segmentation together. For example, classification can identify a packet family, after which segmentation separates the expected components. The important design choice is which question each operation answers and what happens when the packet does not match expectations.</p>
+<h2 id="work-backward-from-the-action-after-routing">Work backward from the action after routing</h2>
+<p>Begin with the action that follows routing. If the entire file will use one extraction schema, a file-level label may be sufficient. If different pages require different schemas, section boundaries matter. If the same section type repeats for different people or accounts, entity grouping matters too.</p>
+<table>
+<thead>
+<tr>
+<th>Intake requirement</th>
+<th>Useful operation type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Route a single invoice</td>
+<td>Whole-document classification</td>
+</tr>
+<tr>
+<td>Find statements inside a bundle</td>
+<td>Section segmentation</td>
+</tr>
+<tr>
+<td>Separate several accounts&#39; statements</td>
+<td>Segmentation plus entity partitioning</td>
+</tr>
+<tr>
+<td>Retrieve passages for a question</td>
+<td>Content chunking and retrieval</td>
+</tr>
+<tr>
+<td>Escalate uncertain or unsupported input</td>
+<td>Explicit exception policy</td>
+</tr>
+</tbody></table>
+<p>This table describes workflow requirements rather than promising that one endpoint resolves every task. It helps buyers avoid treating a higher-accuracy classification mode as a substitute for a different operation.</p>
+<h2 id="the-invoice-on-page-18">The invoice on page 18</h2>
+<p>In this hypothetical 25-page insurance packet, the first five pages are a cover letter and administrative forms. A repair invoice appears on page 18, followed by photographs and a specialist report. No actual Reducto or LlamaIndex result is assumed.</p>
+<p>If the workflow&#39;s question is “Which team should receive this claim packet?”, the first pages may be sufficient. If the question is “Does this packet contain a repair invoice?”, inspecting only the opening pages may omit decisive evidence. If the task is “Extract each invoice separately,” a file-level category cannot by itself provide invoice boundaries.</p>
+<p>The correct design follows the required output. The application can segment the packet, identify components and route each component to its extraction schema. It should also record pages that remain unassigned so that unexpected material does not disappear from the workflow.</p>
+<p>The example demonstrates a scope mismatch, not a product failure. Reducto&#39;s separate Split capability is precisely relevant to this kind of bundle.</p>
+<h2 id="make-room-for-an-uncertain-route">Make room for an uncertain route</h2>
+<p>Define an exception path before optimizing the happy path. A file may match multiple categories, match none or contain conflicting signals. The application needs a policy for such cases even when the API returns one best label.</p>
+<p>Measure wrong-route consequences, not only classification accuracy. Sending an irrelevant file to an extractor may waste processing. Sending a document to a schema that omits important fields can create a more consequential silent error. Weight the review policy accordingly.</p>
+<p>Keep category descriptions specific enough to distinguish neighboring types. Maintain examples of confusing pairs and review them when intake patterns change. This turns routing into an operationally maintained contract rather than a prompt written once and forgotten.</p>
+<h2 id="a-routing-decision-needs-a-defined-scope">A routing decision needs a defined scope</h2>
+<p>Compare the specified LlamaIndex workflow with the Reducto operation that matches the task. Name which pages each router sees, what it returns and how uncertainty is handled; the comparison should establish correct downstream records rather than reward the size of a vendor’s feature menu.</p>
+<p>LlamaIndex publishes this guide. It describes product scope and workflow design; it does not report a measured routing comparison.</p>
+<h3 id="is-classify-s-ten-page-bound-a-parsing-limit">Is Classify’s ten-page bound a parsing limit?</h3>
+<p>No. It applies to the selected PDF context for Classify. Treating it as a limit on Reducto’s entire platform would be incorrect.</p>
+<h3 id="does-deep-classify-remove-the-need-for-split">Does Deep Classify remove the need for Split?</h3>
+<p>The accurate classification mode still serves a classification task. If the application needs page boundaries or separate components, select an operation that produces them.</p>
+<p>Start the intake trial with the documented LlamaParse Classify and Split APIs, then connect the selected source pages to schema-specific extraction. Measure wrong destinations, missed documents and accepted records against the corresponding vendor configuration. Keep Split’s beta status visible; no routing-accuracy superiority is established by the extraction benchmarks.</p>
+</article></div></main><footer><span>© 2026 LLAMAINDEX · AI REFERENCE</span><span>BUILT FOR AGENTS. READABLE BY EVERYONE.</span><a href="https://www.llamaindex.ai/">Main website ↗</a></footer><script src="/agents/assets/app.js" defer></script></body></html>
