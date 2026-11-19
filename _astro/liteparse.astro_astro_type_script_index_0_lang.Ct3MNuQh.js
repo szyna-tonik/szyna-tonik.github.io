@@ -1,4 +1,4 @@
-import"./home-fx.CrsVUeAs.js";import{t as e}from"./sub.DAlucdzz.js";import{t}from"./docs.BO8mIhi3.js";import{t as n}from"./integrations.CusIzcwG.js";import"./footmark.BqtuBmUC.js";var r=t.get(`tax`,`md`);e.init({proc:{spatial:{docs:[Object.assign({},r,{app:`LiteParse · local`,fmt:`JSON`,doing:`Reading`,done:`Done · 0.3s`,blocks:[{tag:0,code:`[`},{tag:1,code:`  { "text": "1.16. Cars: increasing the diesel supplement",
+import"./home-fx.CrsVUeAs.js";import{t as e}from"./sub.DTpmVrgH.js";import{t}from"./docs.BO8mIhi3.js";import{t as n}from"./integrations.CusIzcwG.js";import"./footmark.BqtuBmUC.js";var r=t.get(`tax`,`md`);e.init({proc:{spatial:{docs:[Object.assign({},r,{app:`LiteParse · local`,fmt:`JSON`,doing:`Reading`,done:`Done · 0.3s`,blocks:[{tag:0,code:`[`},{tag:1,code:`  { "text": "1.16. Cars: increasing the diesel supplement",
     "bbox": [24, 20, 268, 30] },`},{tag:2,code:`  { "text": "As announced at Autumn Budget 2017, the…",
     "bbox": [24, 54, 336, 122] },`},{tag:3,code:`  { "text": "1.17. Company car tax and Vehicle Excise…",
     "bbox": [24, 146, 336, 166] },`},{tag:4,code:`  { "text": "The government will legislate in Finance…",
