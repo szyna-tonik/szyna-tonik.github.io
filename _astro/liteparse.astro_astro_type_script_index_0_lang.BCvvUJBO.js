@@ -1,8 +1,0 @@
-import"./home-fx.BrpeCYFv.js";import{t as e}from"./sub.JQqNJ2fU.js";import{t}from"./docs.BO8mIhi3.js";import{t as n}from"./integrations.CusIzcwG.js";import"./footmark.BqtuBmUC.js";var r=t.get(`tax`,`md`);e.init({proc:{spatial:{docs:[Object.assign({},r,{app:`LiteParse · local`,fmt:`JSON`,doing:`Reading`,done:`Done · 0.3s`,blocks:[{tag:0,code:`[`},{tag:1,code:`  { "text": "1.16. Cars: increasing the diesel supplement",
-    "bbox": [24, 20, 268, 30] },`},{tag:2,code:`  { "text": "As announced at Autumn Budget 2017, the…",
-    "bbox": [24, 54, 336, 122] },`},{tag:3,code:`  { "text": "1.17. Company car tax and Vehicle Excise…",
-    "bbox": [24, 146, 336, 166] },`},{tag:4,code:`  { "text": "The government will legislate in Finance…",
-    "bbox": [24, 190, 336, 228] },`},{tag:5,code:`  { "text": "Pensions Tax · 1.18. Master trust tax…",
-    "bbox": [24, 252, 210, 282] },`},{tag:6,code:`  { "text": "The government will legislate in Finance…",
-    "bbox": [24, 306, 336, 334] }
-]`}]})]}},code:n(`liteparse`),term:{hero:[[`cmd`,`npm i -g @llamaindex/liteparse`],[`o`,`added 1 package in 3s`],[`gap`,``],[`cmd`,`lit parse finance-bill-overview.pdf --format markdown -o overview.md`],[`o`,`finance-bill-overview.pdf · 32 pages`],[`o`,`text layer on 32 pages · no OCR needed`],[`ok`,`✓ overview.md written in 1.1s`],[`gap`,``],[`cmd`,`head -3 overview.md`],[`h`,`### 1.16. Cars: increasing the diesel supplement`],[`o`,`As announced at Autumn Budget 2017, the government will`],[`o`,`legislate in Finance Bill 2017-18 to increase the diesel …`]]}});
