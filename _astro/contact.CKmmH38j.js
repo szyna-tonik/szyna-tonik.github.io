@@ -1,0 +1,1 @@
+import"./look.D9z2ojxZ.js";import"./forms.DkCmOc0q.js";import{t as e}from"./home-fx.D3O4cpan.js";import"./footmark.BqtuBmUC.js";{let t=document.querySelector(`.contact__side`);t&&window.LI&&e.fieldBg(t,t.querySelector(`.gp__bg`),{overlay:!0})}

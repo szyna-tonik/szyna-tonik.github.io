@@ -1,0 +1,1 @@
+import"./look.D9z2ojxZ.js";import{t as e}from"./home-fx.D3O4cpan.js";import"./footmark.BqtuBmUC.js";for(let t of document.querySelectorAll(`[data-startup-field]`))e.fieldBg(t,t.querySelector(`.startup-field__bg`),{overlay:!0});
